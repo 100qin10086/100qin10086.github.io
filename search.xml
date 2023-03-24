@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>测试文章</title>
+      <link href="/posts/7a6a6b5a.html"/>
+      <url>/posts/7a6a6b5a.html</url>
+      
+        <content type="html"><![CDATA[<p>我是技术随想</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>你好 大世界</title>
       <link href="/posts/4a17b156.html"/>
       <url>/posts/4a17b156.html</url>
@@ -17,6 +30,17 @@
     
   
   
+    
+    
+    <entry>
+      <title>我是abc</title>
+      <link href="/abc.html"/>
+      <url>/abc.html</url>
+      
+        <content type="html"><![CDATA[<p>我是abc界面</p>]]></content>
+      
+    </entry>
+    
     
     
     <entry>
