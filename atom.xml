@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>秦家大胖`Blog</title>
+  <title>秦家大胖&#39;s Blog</title>
   
-  <subtitle>何其荣幸,何德何能</subtitle>
+  <subtitle>生活朗朗,万物可爱</subtitle>
   <link href="https://100qin10086.github.io/atom.xml" rel="self"/>
   
   <link href="https://100qin10086.github.io/"/>
-  <updated>2023-03-24T17:58:22.050Z</updated>
+  <updated>2023-03-24T18:29:06.531Z</updated>
   <id>https://100qin10086.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://100qin10086.github.io/posts/b4566c99.html"/>
     <id>https://100qin10086.github.io/posts/b4566c99.html</id>
     <published>2023-03-25T01:32:40.000Z</published>
-    <updated>2023-03-24T17:58:22.050Z</updated>
+    <updated>2023-03-24T18:29:06.531Z</updated>
     
     <content type="html"><![CDATA[<h1 id="标题-1"><a href="#标题-1" class="headerlink" title="标题 1"></a>标题 1</h1>]]></content>
     
@@ -43,14 +43,14 @@
     <link href="https://100qin10086.github.io/posts/7a6a6b5a.html"/>
     <id>https://100qin10086.github.io/posts/7a6a6b5a.html</id>
     <published>2023-03-24T22:06:08.000Z</published>
-    <updated>2023-03-24T17:58:22.050Z</updated>
+    <updated>2023-03-24T18:29:06.531Z</updated>
     
-    <content type="html"><![CDATA[<p>我是技术随想很好的我</p>]]></content>
+    <content type="html"><![CDATA[<p>我是技术随想很好的我<br><a href="https://yangzhi-1.github.io/posts/615e2dec.html">https://yangzhi-1.github.io/posts/615e2dec.html</a></p>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;我是技术随想很好的我&lt;/p&gt;
+    <summary type="html">&lt;p&gt;我是技术随想很好的我&lt;br&gt;&lt;a href=&quot;https://yangzhi-1.github.io/posts/615e2dec.html&quot;&gt;https://yangzhi-1.github.io/posts/615e2dec.html&lt;/a&gt;&lt;/p&gt;
 </summary>
       
     
