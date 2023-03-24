@@ -12,12 +12,18 @@
       
       
       
+        <tags>
+            
+            <tag> 测试文章 </tag>
+            
+        </tags>
+      
     </entry>
     
     
     
     <entry>
-      <title>你好 大世界</title>
+      <title>第一篇博客</title>
       <link href="/posts/4a17b156.html"/>
       <url>/posts/4a17b156.html</url>
       
