@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>秦家大胖`Blog</title>
   
-  <subtitle>[object Object]</subtitle>
+  <subtitle>  - 何其荣幸,何德何能 - 所有的不平凡都来自于平凡</subtitle>
   <link href="https://100qin10086.github.io/atom.xml" rel="self"/>
   
   <link href="https://100qin10086.github.io/"/>
-  <updated>2023-03-24T17:52:51.012Z</updated>
+  <updated>2023-03-24T17:55:09.205Z</updated>
   <id>https://100qin10086.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://100qin10086.github.io/posts/b4566c99.html"/>
     <id>https://100qin10086.github.io/posts/b4566c99.html</id>
     <published>2023-03-25T01:32:40.000Z</published>
-    <updated>2023-03-24T17:52:51.012Z</updated>
+    <updated>2023-03-24T17:55:09.205Z</updated>
     
     <content type="html"><![CDATA[<h1 id="标题-1"><a href="#标题-1" class="headerlink" title="标题 1"></a>标题 1</h1>]]></content>
     
@@ -43,7 +43,7 @@
     <link href="https://100qin10086.github.io/posts/7a6a6b5a.html"/>
     <id>https://100qin10086.github.io/posts/7a6a6b5a.html</id>
     <published>2023-03-24T22:06:08.000Z</published>
-    <updated>2023-03-24T17:52:51.012Z</updated>
+    <updated>2023-03-24T17:55:09.205Z</updated>
     
     <content type="html"><![CDATA[<p>我是技术随想很好的我</p>]]></content>
     
