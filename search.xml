@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>二叉树复习</title>
+      <link href="/posts/8492d816.html"/>
+      <url>/posts/8492d816.html</url>
+      
+        <content type="html"><![CDATA[<p>二叉树知识复习</p><h1 id="1"><a href="#1" class="headerlink" title="1."></a>1.<div class="note orange no-icon flat"><p>为什么需要树这种数据结构</p></div></h1><h3 id="1-1数字存储方式分析"><a href="#1-1数字存储方式分析" class="headerlink" title="1.1数字存储方式分析"></a>1.1数字存储方式分析</h3><p>优点:通过下标方式访问元素,速度快,对于有序数组,还可以使用二分查找提高检索速度。<br>缺点:检索或者插入值会整体移动,效率低。</p><h3 id="1，2链式存储方式分析"><a href="#1，2链式存储方式分析" class="headerlink" title="1，2链式存储方式分析"></a>1，2链式存储方式分析</h3><p>优点:在一定程度上对数组存储方式有优化。<br>缺点:进行检索是效率任然很低。</p><h3 id="1-3数存储方式的分析"><a href="#1-3数存储方式的分析" class="headerlink" title="1.3数存储方式的分析"></a>1.3数存储方式的分析</h3><p>能提高数据存储,读取效率,比如利用二叉排序树</p><pre><code class="lang-java">/** * @Author 秦家大胖 * @Date 2023/3/25 21:19 * @Version 1.0 * 我亦无他，惟手熟尔 */public class no1 &#123;    public static void main(String[] args) &#123;    &#125;&#125;//创建树class BinaryTree&#123;private Node root;    public BinaryTree(Node root) &#123;        this.root = root;    &#125;    //前序遍历    public void preOrder()&#123;        if (this.root!=null)&#123;            this.root.preOrder();        &#125;else&#123;            System.out.println(&quot;二叉树为空，无法便利&quot;);        &#125;    &#125;    //中序遍历和后序遍历与前序遍历一样    //前序查找    public Node preOrderSearch(int no)&#123;        if (root!=null)&#123;            return root.preOrderSearch(no);        &#125;else&#123;            return null;        &#125;    &#125;    //中序查找和后续查找与前序查找思路一样&#125;//先创建结点class Node&#123;private int id;private String name;private Node left;private Node right;    public Node(int id, String name) &#123;        this.id = id;        this.name = name;    &#125;    public int getId() &#123;        return id;    &#125;    public void setId(int id) &#123;        this.id = id;    &#125;    public String getName() &#123;        return name;    &#125;    public void setName(String name) &#123;        this.name = name;    &#125;    public Node getLeft() &#123;        return left;    &#125;    public void setLeft(Node left) &#123;        this.left = left;    &#125;    public Node getRight() &#123;        return right;    &#125;    public void setRight(Node right) &#123;        this.right = right;    &#125;    @Override    public String toString() &#123;        return &quot;Node&#123;&quot; +                &quot;id=&quot; + id +                &quot;, name=&#39;&quot; + name + &#39;\&#39;&#39; +                &#39;&#125;&#39;;    &#125;    //前序遍历    public void preOrder()&#123;        System.out.println(this);        //向左遍历        if (this.left!=null)&#123;            this.left.preOrder();        &#125;        //向右遍历，注意此时的this和向左边遍历的this是同一个值        if (this.right!=null)&#123;            this.right.preOrder();        &#125;    &#125;    //中序遍历    public void infixOrder()&#123;        //向左遍历        if (this.left!=null)&#123;            this.left.preOrder();        &#125;        System.out.println(this);        //向右遍历，注意此时的this和向左边遍历的this是同一个值        if (this.right!=null)&#123;            this.right.preOrder();        &#125;    &#125;    //后序遍历    public void PostOrder()&#123;        //向左遍历        if (this.left!=null)&#123;            this.left.preOrder();        &#125;        System.out.println(this);        //向右遍历，注意此时的this和向左边遍历的this是同一个值        if (this.right!=null)&#123;            this.right.preOrder();        &#125;    &#125;    //前序遍历查找    public Node preOrderSearch(int no)&#123;        //先判断当前节点是不是        if (this.id==no)&#123;            return this;        &#125;        //则判断当前节点的左子节点是否为空,如果不为空，则递归前序查找        Node resNode=null;        if (this.left!=null)&#123;            resNode = this.left.preOrderSearch(no);        &#125;        //判断在左子树找到了吗        if (resNode!=null)&#123;            return resNode;        &#125;        //则判断当前节点的右子节点是否为空,如果不为空，则递归前序查找        if (this.right!=null)&#123;            resNode = this.right.preOrderSearch(no);        &#125;        return resNode;//注意，此时的resNode可能为空，要在树哪里进行判断    &#125;    //中序遍历查找，和后续遍历查找和前序遍历查找的思路一样，它们都是按照前面遍历的思路查找    public Node infixOrderSearch(int no)&#123;        Node resNode=null;        if (this.left!=null)&#123;            resNode=this.left.infixOrderSearch(no);        &#125;        if (resNode!=null)&#123;            return resNode;        &#125;        if (this.id==no)&#123;            return this;        &#125;        if (this.right!=null)&#123;            resNode=this.right.infixOrderSearch(no);        &#125;        return resNode;    &#125;    //后续遍历查找    public Node postOrderSearch(int no)&#123;        Node resNode=null;        if (this.left!=null)&#123;            resNode=this.left.postOrderSearch(no);        &#125;        if (resNode!=null)&#123;            return resNode;        &#125;        if (this.right!=null)&#123;            resNode=this.right.postOrderSearch(no);        &#125;        if (resNode!=null)&#123;            return resNode;        &#125;        if (this.id==no)&#123;            return this;        &#125;        return resNode;    &#125;&#125;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据结构 </tag>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Markdown_study</title>
       <link href="/posts/b4566c99.html"/>
       <url>/posts/b4566c99.html</url>
