@@ -1,0 +1,406 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><title>数据库实验二 | 秦家大胖's Blog</title><meta name="author" content="秦三顺"><meta name="copyright" content="秦三顺"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="大胖提示数据库的第二次实验：注意由于实验未给出任何表与字段，所以下面代码中的表和字段均为自己设计，所以在某几个题中会出现一些问题，由于数据和表均为自己设计，所以在参考时尽可能不要一致  如果有能力可以在我的实验结构上进行改进  CREATE TABLE student (     sno       VARCHAR(10) PRIMARY KEY, -- 学号，主键     sname     V"><meta property="og:type" content="article"><meta property="og:title" content="数据库实验二"><meta property="og:url" content="https://100qin10086.github.io/posts/e8eabf83.html"><meta property="og:site_name" content="秦家大胖&#39;s Blog"><meta property="og:description" content="大胖提示数据库的第二次实验：注意由于实验未给出任何表与字段，所以下面代码中的表和字段均为自己设计，所以在某几个题中会出现一些问题，由于数据和表均为自己设计，所以在参考时尽可能不要一致  如果有能力可以在我的实验结构上进行改进  CREATE TABLE student (     sno       VARCHAR(10) PRIMARY KEY, -- 学号，主键     sname     V"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://100qin10086.github.io/img/bj/no10.jpg"><meta property="article:published_time" content="2023-04-02T07:11:20.000Z"><meta property="article:modified_time" content="2023-04-02T07:25:37.012Z"><meta property="article:author" content="秦三顺"><meta property="article:tag" content="博客,秦家大胖,秦三顺,Java,springMVC,myBatis,springBoot,sjjg,算法"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://100qin10086.github.io/img/bj/no10.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://100qin10086.github.io/posts/e8eabf83.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="manifest" href="/manifest.json"><meta name="msapplication-TileColor" content="#3b70fc"><link rel="apple-touch-icon" sizes="180x180" href="/img/siteicon/128.png"><link rel="icon" type="image/png" sizes="32x32" href="/img/siteicon/32.png"><link rel="icon" type="image/png" sizes="16x16" href="/img/siteicon/16.png"><link rel="mask-icon" href="/img/siteicon/128.png" color="#5bbad5"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload='this.media="all"'><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload='this.media="all"'><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE={title:"数据库实验二",isPost:!0,isHome:!1,isHighlightShrink:!1,isToc:!0,postUpdate:"2023-04-02 15:25:37"}</script><noscript><style>#nav{opacity:1}.justified-gallery img{opacity:1}#post-meta time,#recent-posts time{display:inline!important}</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload='this.media="all"'><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/progress_bar.css" media="defer" onload='this.media="all"'><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-blog@2.0.4/css/runtime/runtime.min.css" media="print" onload='this.media="all"'><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload='this.media="all"'><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload='this.media="all"'><script src="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload='this.media="screen"'><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="秦家大胖's Blog" type="application/atom+xml"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/tx.jfif" onerror='onerror=null,src="/img/friend_404.gif"' alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i> <span>Home</span></a></div><div class="menus_item"><a class="site-page" href="/bangumis/index.html"><i class="fa-fw fas fa-home"></i> <span>追番</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i> <span>留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image:url(/img/bj/no10.jpg)"><nav id="nav"><span id="blog-info"><a href="/" title="秦家大胖's Blog"><span class="site-name">秦家大胖's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i> <span>搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i> <span>Home</span></a></div><div class="menus_item"><a class="site-page" href="/bangumis/index.html"><i class="fa-fw fas fa-home"></i> <span>追番</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i> <span>留言板</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">数据库实验二</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-04-02T07:11:20.000Z" title="发表于 2023-04-02 15:11:20">2023-04-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-02T07:25:37.012Z" title="更新于 2023-04-02 15:25:37">2023-04-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span data-flag-title="数据库实验二"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span class="waline-pageview-count" data-path="/posts/e8eabf83.html"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="大胖提示"><a href="#大胖提示" class="headerlink" title="大胖提示"></a>大胖提示</h1><div class="note red icon-padding modern"><i class="note-icon fas fa-fan"></i><p>数据库的第二次实验：注意由于实验未给出任何表与字段，所以下面代码中的表和字段均为自己设计，所以在某几个题中会出现一些问题，由于数据和表均为自己设计，所以在参考时尽可能不要一致</p></div><div class="note red icon-padding modern"><i class="note-icon fas fa-fan"></i><p>如果有能力可以在我的实验结构上进行改进</p></div><pre class="line-numbers language-sqlserver" data-language="sqlserver"><code class="language-sqlserver">CREATE TABLE student
+(
+    sno       VARCHAR(10) PRIMARY KEY, -- 学号，主键
+    sname     VARCHAR(20)  NOT NULL,   -- 姓名，不能为空
+    sex       CHAR(2)      NOT NULL,   -- 性别，不能为空
+    born      DATE         NOT NULL,   -- 出生日期，不能为空
+    telephone VARCHAR(20),             -- 电话号码，可为空
+    address   VARCHAR(100) NOT NULL,   -- 地址，不能为空
+    content   TEXT,                    -- 备注，可为空
+    classno   VARCHAR(20)  NOT NULL    -- 班级编号，不能为空
+);
+CREATE TABLE course
+(
+    cno    VARCHAR(10) PRIMARY KEY, -- 课程编号，主键
+    cname  VARCHAR(20) NOT NULL,    -- 课程名称，不能为空
+    cpno   VARCHAR(10),             -- 先修课程编号，可为空
+    credit INT         NOT NULL     -- 学分，不能为空
+);
+CREATE TABLE sc
+(
+    sno   VARCHAR(10) NOT NULL,                 -- 学号，不能为空
+    cno   VARCHAR(10) NOT NULL,                 -- 课程编号，不能为空
+    grade INT,                                  -- 成绩，
+    PRIMARY KEY (sno, cno),                     -- 学号和课程编号组成主键
+    FOREIGN KEY (sno) REFERENCES student (sno), -- 学号为外键，参考 student 表
+    FOREIGN KEY (cno) REFERENCES course (cno)   -- 课程编号为外键，参考 course 表
+);
+
+INSERT INTO student (sno, sname, sex, born, telephone, address, content, classno)
+VALUES (&#39;001&#39;, &#39;张三&#39;, &#39;男&#39;, &#39;2000-01-01&#39;, &#39;123456789&#39;, &#39;北京市海淀区&#39;, &#39;爱好篮球&#39;, &#39;A001&#39;),
+       (&#39;002&#39;, &#39;李四&#39;, &#39;女&#39;, &#39;2001-02-02&#39;, &#39;987654321&#39;, &#39;北京市朝阳区&#39;, NULL, &#39;A002&#39;),
+       (&#39;003&#39;, &#39;王五&#39;, &#39;男&#39;, &#39;2002-03-03&#39;, &#39;123123123&#39;, &#39;北京市丰台区&#39;, &#39;爱好唱歌&#39;, &#39;A001&#39;),
+       (&#39;004&#39;, &#39;赵六&#39;, &#39;女&#39;, &#39;2003-04-04&#39;, NULL, &#39;北京市海淀区&#39;, &#39;爱好旅游&#39;, &#39;A003&#39;),
+       (&#39;005&#39;, &#39;钱七&#39;, &#39;男&#39;, &#39;2004-05-05&#39;, &#39;321321321&#39;, &#39;北京市朝阳区&#39;, NULL, &#39;A002&#39;),
+       (&#39;006&#39;, &#39;孙八&#39;, &#39;女&#39;, &#39;2005-06-06&#39;, &#39;456456456&#39;, &#39;北京市丰台区&#39;, &#39;爱好跳舞&#39;, &#39;A004&#39;),
+       (&#39;007&#39;, &#39;周九&#39;, &#39;男&#39;, &#39;2006-07-07&#39;, &#39;789789789&#39;, &#39;北京市海淀区&#39;, &#39;爱好游泳&#39;, &#39;A003&#39;),
+       (&#39;008&#39;, &#39;吴十&#39;, &#39;女&#39;, &#39;2007-08-08&#39;, &#39;654654654&#39;, &#39;北京市朝阳区&#39;, NULL, &#39;A004&#39;),
+       (&#39;009&#39;, &#39;郑一&#39;, &#39;男&#39;, &#39;2008-09-09&#39;, &#39;123456789&#39;, &#39;北京市丰台区&#39;, &#39;爱好看书&#39;, &#39;A001&#39;),
+       (&#39;010&#39;, &#39;王二&#39;, &#39;女&#39;, &#39;2009-10-10&#39;, &#39;987654321&#39;, &#39;北京市海淀区&#39;, NULL, &#39;A002&#39;);
+
+INSERT INTO course (cno, cname, cpno, credit)
+VALUES (&#39;001&#39;, &#39;高等数学&#39;, NULL, 4),
+       (&#39;002&#39;, &#39;线性代数&#39;, NULL, 3),
+       (&#39;003&#39;, &#39;计算机组成原理&#39;, NULL, 4),
+       (&#39;004&#39;, &#39;数据结构与算法&#39;, &#39;003&#39;, 4),
+       (&#39;005&#39;, &#39;数据库系统&#39;, &#39;004&#39;, 3),
+       (&#39;006&#39;, &#39;操作系统&#39;, &#39;003&#39;, 3),
+       (&#39;007&#39;, &#39;编译原理&#39;, &#39;004&#39;, 3),
+       (&#39;008&#39;, &#39;计算机网络&#39;, &#39;006&#39;, 3),
+       (&#39;009&#39;, &#39;软件工程&#39;, &#39;007&#39;, 3),
+       (&#39;010&#39;, &#39;人工智能&#39;, &#39;009&#39;, 3);
+
+INSERT INTO sc (sno, cno, grade)
+VALUES (&#39;001&#39;, &#39;001&#39;, 90),
+       (&#39;002&#39;, &#39;001&#39;, 85),
+       (&#39;003&#39;, &#39;002&#39;, 80),
+       (&#39;004&#39;, &#39;002&#39;, 88),
+       (&#39;005&#39;, &#39;003&#39;, 92),
+       (&#39;006&#39;, &#39;003&#39;, 87),
+       (&#39;007&#39;, &#39;004&#39;, 78),
+       (&#39;008&#39;, &#39;004&#39;, 85),
+       (&#39;009&#39;, &#39;005&#39;, 91),
+       (&#39;010&#39;, &#39;006&#39;, 89);
+
+-- 1.查询一班的学生学号和姓名
+select sno, sname
+from student
+where classno &#x3D; &#39;A001&#39;;
+-- 2.查询选修了课程的学号和课程号
+select sno, cno
+from sc
+where cno is not null;
+-- 3.
+select sno, grade
+from sc
+where cno &#x3D; &#39;002&#39;
+order by grade DESC, sno ASC;
+-- 4.
+select sno, grade * 0.75 AS grade
+from sc
+where cno &#x3D; &#39;002&#39;
+  AND grade between 80 and 90;
+-- 5.
+select * from student
+where classno in (&#39;A001&#39;, &#39;A002&#39;)
+  AND sname like &#39;张%&#39;;
+-- 6.
+select sno, cno
+from sc
+where grade is null;
+-- 7.
+select course.cno, count(sc.sno) AS 选课人数
+from sc,course
+where sc.cno &#x3D; course.cno
+group by course.cno;
+-- 8.
+select classno, count(sno)
+from student
+group by classno;
+-- 9.
+select student.sname, sc.cno, sc.grade
+from student,
+     sc
+where student.sno &#x3D; sc.sno;
+-- 10.
+SELECT sno
+FROM sc
+WHERE cno &#x3D; &#39;001&#39;
+  AND sno IN (SELECT sno FROM sc
+              WHERE cno &#x3D; &#39;002&#39;);
+-- 11.
+SELECT student.sname, AVG(grade) AS avg_grade
+FROM sc INNER JOIN student ON sc.sno &#x3D; student.sno
+GROUP BY student.sno, student.sname
+HAVING AVG(sc.grade) &gt; 85;
+-- 12.
+select sname from student
+inner join sc on student.sno &#x3D; sc.sno
+where cno &#x3D; &#39;001&#39;;
+-- 13.
+select cname from course
+inner join sc on sc.cno &#x3D; course.cno
+where sno &#x3D; &#39;002&#39;;
+-- 14
+-- 14.1 男性或大于19的姓名,课程号,成绩
+SELECT sname, cno, grade
+FROM sc,student
+WHERE (sex &#x3D; &#39;男&#39;
+    OR (DATEDIFF(YEAR, born, GETDATE()) &gt; 19))
+  AND sc.sno &#x3D; student.sno
+-- 14.2 两个表联合
+select sname, cname, grade
+from course,
+     (SELECT sname, cno, grade
+      FROM sc,
+           student
+      WHERE (sex &#x3D; &#39;男&#39;
+          OR (DATEDIFF(YEAR, born, GETDATE()) &gt; 19))
+        AND sc.sno &#x3D; student.sno) AS sons
+where course.cno &#x3D; sons.cno;
+-- 15
+-- 15.1 查询出的每个学生的学号,平均分和总分
+select sno, AVG(grade) AS 平均分, SUM(grade) AS 总分
+from sc
+group by sno;
+-- 15.1 查询出的每个学生的名字,平均分和总分
+select sname, sons.平均分, sons.总分
+from student,
+     (select sno, AVG(grade) AS 平均分, SUM(grade) AS 总分
+      from sc
+      group by sno) AS sons
+where student.sno &#x3D; sons.sno;
+
+-- 16
+-- 16.1先查询每个学生个选修了几门课
+select sno, count(cno) AS 选修的课程数
+from sc
+group by sno;
+-- 16.2查询一个有多少门课
+select count(cno)
+from course;
+-- 16.3 将表联合
+select sc.sno
+from sc,
+     (select sno, count(cno) AS 选修的课程数 from sc group by sno) AS sons
+where sc.sno &#x3D; sons.sno
+  AND sons.选修的课程数 &#x3D; (select count(cno) from course);
+-- 16.4继续将表联合
+select sname
+from student,
+     (select sc.sno
+      from sc,
+           (select sno, count(cno) AS 选修的课程数 from sc group by sno) AS sons
+      where sc.sno &#x3D; sons.sno
+        AND sons.选修的课程数 &#x3D; (select count(cno) from course)) AS sons
+where student.sno &#x3D; sons.sno;
+
+-- 17.由于我的字段未设置age这个字段,所以无法修改
+-- update student set age&#x3D;21 where sno&#x3D;&#39;001&#39;;
+
+-- 18
+-- 18.1先查询李丽在那个班
+select classno
+from student
+where sname &#x3D; &#39;张三&#39;;
+-- 18.2将表联合
+select *
+from student
+where classno &#x3D; (select classno from student where sname &#x3D; &#39;张三&#39;);
+
+-- 19
+-- 19.1 先找到1班的学生的学号
+select sno
+from student
+where classno &#x3D; &#39;A001&#39;;
+-- 19.2 在将1班的学生成绩都加10分
+update sc
+set grade&#x3D;grade + 10 from sc
+join (select sno from student where classno &#x3D; &#39;A001&#39;) AS sons on sc.sno &#x3D; sons.sno;
+
+-- 20
+-- 20.1 先找到未选课的学生的学号
+select sno from sc
+where cno is null;
+-- 20.2 将两个表联合
+delete from student
+from student
+join (select sno from sc where cno is null) AS sons on student.sno &#x3D; sons.sno;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div class="note red icon-padding modern"><i class="note-icon fas fa-fan"></i><p>下方进行评论，:joy::joy::joy::joy:</p></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者:</span> <span class="post-copyright-info"><a href="https://100qin10086.github.io">秦三顺</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接:</span> <span class="post-copyright-info"><a href="https://100qin10086.github.io/posts/e8eabf83.html">https://100qin10086.github.io/posts/e8eabf83.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明:</span> <span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://100qin10086.github.io" target="_blank">秦家大胖's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/bj/no10.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload='this.media="all"'><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/4263f441.html" title="平衡二叉树"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no9.jpg" onerror='onerror=null,src="/img/404.jpg"' alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">平衡二叉树</div></div></a></div></nav><hr><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i> <span>评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/tx.jfif" onerror='this.onerror=null,this.src="/img/friend_404.gif"' alt="avatar"></div><div class="author-info__name">秦三顺</div><div class="author-info__description">一个专注于技术的博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/100qin10086" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:3048413889@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="tencent://Message/?Uin=3048413889&amp;websiteName=www.oicqzone.com&amp;Menu=yes" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="https://blog.csdn.net/m0_63639194?type=blog" target="_blank" title="CSDN"><i class="fa fa-address-card"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">小站新增留言板,文章评论功能，可以填写您的邮箱后再评论,不好的评论会删除！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%A7%E8%83%96%E6%8F%90%E7%A4%BA"><span class="toc-number">1.</span> <span class="toc-text">大胖提示</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/e8eabf83.html" title="数据库实验二"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no10.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="数据库实验二"></a><div class="content"><a class="title" href="/posts/e8eabf83.html" title="数据库实验二">数据库实验二</a><time datetime="2023-04-02T07:11:20.000Z" title="发表于 2023-04-02 15:11:20">2023-04-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/4263f441.html" title="平衡二叉树"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no9.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="平衡二叉树"></a><div class="content"><a class="title" href="/posts/4263f441.html" title="平衡二叉树">平衡二叉树</a><time datetime="2023-04-01T12:18:29.000Z" title="发表于 2023-04-01 20:18:29">2023-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e5052ecb.html" title="二叉排序树"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no8.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="二叉排序树"></a><div class="content"><a class="title" href="/posts/e5052ecb.html" title="二叉排序树">二叉排序树</a><time datetime="2023-03-31T10:51:54.000Z" title="发表于 2023-03-31 18:51:54">2023-03-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e2210717.html" title="Spring-声明式事务"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no7.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="Spring-声明式事务"></a><div class="content"><a class="title" href="/posts/e2210717.html" title="Spring-声明式事务">Spring-声明式事务</a><time datetime="2023-03-30T10:51:05.000Z" title="发表于 2023-03-30 18:51:05">2023-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/8950f30e.html" title="Spring-JdbcTemplate"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/n6.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="Spring-JdbcTemplate"></a><div class="content"><a class="title" href="/posts/8950f30e.html" title="Spring-JdbcTemplate">Spring-JdbcTemplate</a><time datetime="2023-03-30T03:15:04.000Z" title="发表于 2023-03-30 11:15:04">2023-03-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 秦三顺</div><div class="framework-info"><span>框架</span> <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题</span> <a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://qgq.kuhehe.top/',
+      pageview: true,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: false,
+    }, null))
+  }
+
+  const walineCSSLoad = document.getElementById('waline-css')
+
+  if (typeof Waline === 'object') {
+    walineCSSLoad ? initWaline() : getCSS('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css','waline-css').then(initWaline)
+  }
+  else {
+    getCSS('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css','waline-css').then(() => {
+      getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(initWaline)
+    })
+  }
+}
+
+if ('Waline' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script defer src="/js/cursor.js"></script><div class="aplayer no-destory" data-id="1708664797" data-server="tencent" data-type="playlist" data-order="list" data-fixed="true" data-preload="auto" data-autoplay="false" data-mutex="true"></div><script async src="//npm.elemecdn.com/pace-js@1.2.4/pace.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload='this.media="all"'><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><div class="app-refresh" id="app-refresh" style="position:fixed;top:-2.2rem;left:0;right:0;z-index:99999;padding:0 1rem;font-size:15px;height:2.2rem;transition:all .3s ease"><div class="app-refresh-wrap" style="display:flex;color:#fff;height:100%;align-items:center;justify-content:center"><label>✨ 有新文章啦！ 👉</label><a href="javascript:void(0)" onclick="location.reload()"><span style="color:#fff;text-decoration:underline;cursor:pointer">🍗点击食用🍔</span></a></div></div><script>if ('serviceWorker' in navigator) {
+    if (navigator.serviceWorker.controller) {
+        navigator.serviceWorker.addEventListener('controllerchange', function() {
+            showNotification()
+        })
+    }
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js')
+    })
+}
+function showNotification() {
+    if (GLOBAL_CONFIG.Snackbar) {
+        var snackbarBg =
+            document.documentElement.getAttribute('data-theme') === 'light' ?
+                GLOBAL_CONFIG.Snackbar.bgLight :
+                GLOBAL_CONFIG.Snackbar.bgDark
+        var snackbarPos = GLOBAL_CONFIG.Snackbar.position
+        Snackbar.show({
+            text: '✨ 有新文章啦！ 👉',
+            backgroundColor: snackbarBg,
+            duration: 500000,
+            pos: snackbarPos,
+            actionText: '🍗点击食用🍔',
+            actionTextColor: '#fff',
+            onActionClick: function(e) {
+                location.reload()
+            },
+        })
+    } else {
+        var showBg =
+            document.documentElement.getAttribute('data-theme') === 'light' ?
+                '#3b70fc' :
+                '#1f1f1f'
+        var cssText = `top: 0; background: ${showBg};`
+        document.getElementById('app-refresh').style.cssText = cssText
+    }
+}</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i> <span>数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div><script data-pjax>function butterfly_footer_beautify_injector_config(){var A=document.getElementById("footer-wrap");console.log("已挂载butterfly_footer_beautify"),A.insertAdjacentHTML("beforeend",'<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v5.4.0" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v4.2.2" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.jsdelivr.com/" style="margin-inline:5px" data-title="本站使用JsDelivr为静态资源提供CDN加速" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" alt=""/></a><a class="github-badge" target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index" style="margin-inline:5px" data-title="本站已在甘进行备案" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/甘ICP备-2022004213号-e1d492?style=flat&amp;logo=data:image/png;base64,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" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>')}for(var elist="null".split(","),cpage=location.pathname,epage="all",flag=0,i=0;i<elist.length;i++)cpage.includes(elist[i])&&flag++;"all"===epage&&0==flag?butterfly_footer_beautify_injector_config():epage===cpage&&butterfly_footer_beautify_injector_config()</script><script async src="/js/runtime/runtime.min.js"></script><script async src="/js/ali_font.js"></script><div class="js-pjax"><script async>for(var arr=document.getElementsByClassName("recent-post-item"),i=0;i<arr.length;i++)arr[i].classList.add("wow"),arr[i].classList.add("animate__zoomIn"),arr[i].setAttribute("data-wow-duration","1.5s"),arr[i].setAttribute("data-wow-delay","200ms"),arr[i].setAttribute("data-wow-offset","30"),arr[i].setAttribute("data-wow-iteration","1")</script><script async>for(var arr=document.getElementsByClassName("card-widget"),i=0;i<arr.length;i++)arr[i].classList.add("wow"),arr[i].classList.add("animate__zoomIn"),arr[i].setAttribute("data-wow-duration",""),arr[i].setAttribute("data-wow-delay","200ms"),arr[i].setAttribute("data-wow-offset",""),arr[i].setAttribute("data-wow-iteration","")</script><script async>for(var arr=document.getElementsByClassName("flink-list-card"),i=0;i<arr.length;i++)arr[i].classList.add("wow"),arr[i].classList.add("animate__flipInY"),arr[i].setAttribute("data-wow-duration","3s"),arr[i].setAttribute("data-wow-delay",""),arr[i].setAttribute("data-wow-offset",""),arr[i].setAttribute("data-wow-iteration","")</script><script async>for(var arr=document.getElementsByClassName("flink-list-card"),i=0;i<arr.length;i++)arr[i].classList.add("wow"),arr[i].classList.add("animate__animated"),arr[i].setAttribute("data-wow-duration","3s"),arr[i].setAttribute("data-wow-delay",""),arr[i].setAttribute("data-wow-offset",""),arr[i].setAttribute("data-wow-iteration","")</script><script async>for(var arr=document.getElementsByClassName("article-sort-item"),i=0;i<arr.length;i++)arr[i].classList.add("wow"),arr[i].classList.add("animate__slideInRight"),arr[i].setAttribute("data-wow-duration","1.5s"),arr[i].setAttribute("data-wow-delay",""),arr[i].setAttribute("data-wow-offset",""),arr[i].setAttribute("data-wow-iteration","")</script><script async>for(var arr=document.getElementsByClassName("site-card"),i=0;i<arr.length;i++)arr[i].classList.add("wow"),arr[i].classList.add("animate__flipInY"),arr[i].setAttribute("data-wow-duration","3s"),arr[i].setAttribute("data-wow-delay",""),arr[i].setAttribute("data-wow-offset",""),arr[i].setAttribute("data-wow-iteration","")</script><script async>for(var arr=document.getElementsByClassName("site-card"),i=0;i<arr.length;i++)arr[i].classList.add("wow"),arr[i].classList.add("animate__animated"),arr[i].setAttribute("data-wow-duration","3s"),arr[i].setAttribute("data-wow-delay",""),arr[i].setAttribute("data-wow-offset",""),arr[i].setAttribute("data-wow-iteration","")</script></div><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow_init.js"></script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginModelPath:"assets/",model:{jsonPath:"/live2dw/assets/shizuku.model.json"},display:{position:"left",width:300,height:600},mobile:{show:!1},rect:"opacity:0.7",log:!1,pluginJsPath:"lib/",pluginRootPath:"live2dw/",tagMode:!1})</script></body></html>
