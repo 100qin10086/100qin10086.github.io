@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><title>数据库实验二 | 秦家大胖's Blog</title><meta name="author" content="秦三顺"><meta name="copyright" content="秦三顺"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="大胖提示数据库的第二次实验：注意由于实验未给出任何表与字段，所以下面代码中的表和字段均为自己设计，所以在某几个题中会出现一些问题，由于数据和表均为自己设计，所以在参考时尽可能不要一致  如果有能力可以在我的实验结构上进行改进  -- student表测试数据 INSERT INTO student (sno, sname, sex, native, birthday, classno, home,"><meta property="og:type" content="article"><meta property="og:title" content="数据库实验二"><meta property="og:url" content="https://100qin10086.github.io/posts/e8eabf83.html"><meta property="og:site_name" content="秦家大胖&#39;s Blog"><meta property="og:description" content="大胖提示数据库的第二次实验：注意由于实验未给出任何表与字段，所以下面代码中的表和字段均为自己设计，所以在某几个题中会出现一些问题，由于数据和表均为自己设计，所以在参考时尽可能不要一致  如果有能力可以在我的实验结构上进行改进  -- student表测试数据 INSERT INTO student (sno, sname, sex, native, birthday, classno, home,"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://100qin10086.github.io/img/bj/no10.jpg"><meta property="article:published_time" content="2023-04-02T07:11:20.000Z"><meta property="article:modified_time" content="2023-04-02T10:23:37.820Z"><meta property="article:author" content="秦三顺"><meta property="article:tag" content="博客,秦家大胖,秦三顺,Java,springMVC,myBatis,springBoot,sjjg,算法"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://100qin10086.github.io/img/bj/no10.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://100qin10086.github.io/posts/e8eabf83.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="manifest" href="/manifest.json"><meta name="msapplication-TileColor" content="#3b70fc"><link rel="apple-touch-icon" sizes="180x180" href="/img/siteicon/128.png"><link rel="icon" type="image/png" sizes="32x32" href="/img/siteicon/32.png"><link rel="icon" type="image/png" sizes="16x16" href="/img/siteicon/16.png"><link rel="mask-icon" href="/img/siteicon/128.png" color="#5bbad5"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload='this.media="all"'><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload='this.media="all"'><script>const GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><title>数据库实验二 | 秦家大胖's Blog</title><meta name="author" content="秦三顺"><meta name="copyright" content="秦三顺"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="大胖提示数据库的第二次实验：注意由于实验未给出任何数据，所以下面代码中的数据均为自己设计,由于第一次实验在创建表是添加了约束,所以在某几个题中会出现一些问题，由于数据和表均为自己设计，所以在参考时尽可能不要一致  如果有能力可以在我的实验结构上进行改进  -- student表测试数据 INSERT INTO student (sno, sname, sex, native, birthday,"><meta property="og:type" content="article"><meta property="og:title" content="数据库实验二"><meta property="og:url" content="https://100qin10086.github.io/posts/e8eabf83.html"><meta property="og:site_name" content="秦家大胖&#39;s Blog"><meta property="og:description" content="大胖提示数据库的第二次实验：注意由于实验未给出任何数据，所以下面代码中的数据均为自己设计,由于第一次实验在创建表是添加了约束,所以在某几个题中会出现一些问题，由于数据和表均为自己设计，所以在参考时尽可能不要一致  如果有能力可以在我的实验结构上进行改进  -- student表测试数据 INSERT INTO student (sno, sname, sex, native, birthday,"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://100qin10086.github.io/img/bj/no10.jpg"><meta property="article:published_time" content="2023-04-02T07:11:20.000Z"><meta property="article:modified_time" content="2023-04-02T10:32:19.487Z"><meta property="article:author" content="秦三顺"><meta property="article:tag" content="博客,秦家大胖,秦三顺,Java,springMVC,myBatis,springBoot,sjjg,算法"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://100qin10086.github.io/img/bj/no10.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://100qin10086.github.io/posts/e8eabf83.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="manifest" href="/manifest.json"><meta name="msapplication-TileColor" content="#3b70fc"><link rel="apple-touch-icon" sizes="180x180" href="/img/siteicon/128.png"><link rel="icon" type="image/png" sizes="32x32" href="/img/siteicon/32.png"><link rel="icon" type="image/png" sizes="16x16" href="/img/siteicon/16.png"><link rel="mask-icon" href="/img/siteicon/128.png" color="#5bbad5"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload='this.media="all"'><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload='this.media="all"'><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -38,7 +38,7 @@
     toc: true,
     rightside: false,
   }
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE={title:"数据库实验二",isPost:!0,isHome:!1,isHighlightShrink:!1,isToc:!0,postUpdate:"2023-04-02 18:23:37"}</script><noscript><style>#nav{opacity:1}.justified-gallery img{opacity:1}#post-meta time,#recent-posts time{display:inline!important}</style></noscript><script>(win=>{
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE={title:"数据库实验二",isPost:!0,isHome:!1,isHighlightShrink:!1,isToc:!0,postUpdate:"2023-04-02 18:32:19"}</script><noscript><style>#nav{opacity:1}.justified-gallery img{opacity:1}#post-meta time,#recent-posts time{display:inline!important}</style></noscript><script>(win=>{
     win.saveToLocal = {
       set: function setWithExpiry(key, value, ttl) {
         if (ttl === 0) return
@@ -129,206 +129,210 @@
       }
     }
     detectApple()
-    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload='this.media="all"'><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/progress_bar.css" media="defer" onload='this.media="all"'><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-blog@2.0.4/css/runtime/runtime.min.css" media="print" onload='this.media="all"'><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload='this.media="all"'><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload='this.media="all"'><script src="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload='this.media="screen"'><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="秦家大胖's Blog" type="application/atom+xml"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/tx.jfif" onerror='onerror=null,src="/img/friend_404.gif"' alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i> <span>Home</span></a></div><div class="menus_item"><a class="site-page" href="/bangumis/index.html"><i class="fa-fw fas fa-home"></i> <span>追番</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i> <span>留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image:url(/img/bj/no10.jpg)"><nav id="nav"><span id="blog-info"><a href="/" title="秦家大胖's Blog"><span class="site-name">秦家大胖's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i> <span>搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i> <span>Home</span></a></div><div class="menus_item"><a class="site-page" href="/bangumis/index.html"><i class="fa-fw fas fa-home"></i> <span>追番</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i> <span>留言板</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">数据库实验二</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-04-02T07:11:20.000Z" title="发表于 2023-04-02 15:11:20">2023-04-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-02T10:23:37.820Z" title="更新于 2023-04-02 18:23:37">2023-04-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span data-flag-title="数据库实验二"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span class="waline-pageview-count" data-path="/posts/e8eabf83.html"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="大胖提示"><a href="#大胖提示" class="headerlink" title="大胖提示"></a>大胖提示</h1><div class="note red icon-padding modern"><i class="note-icon fas fa-fan"></i><p>数据库的第二次实验：注意由于实验未给出任何表与字段，所以下面代码中的表和字段均为自己设计，所以在某几个题中会出现一些问题，由于数据和表均为自己设计，所以在参考时尽可能不要一致</p></div><div class="note red icon-padding modern"><i class="note-icon fas fa-fan"></i><p>如果有能力可以在我的实验结构上进行改进</p></div><pre class="line-numbers language-SqlServer" data-language="SqlServer"><code class="language-SqlServer">-- student表测试数据
-INSERT INTO student (sno, sname, sex, native, birthday, classno, home, tel, age)
-VALUES
-    (&#39;95001&#39;, &#39;张三&#39;, &#39;男&#39;, &#39;湖南&#39;, &#39;2003-01-01&#39;, &#39;A001&#39;, &#39;湖南长沙&#39;, &#39;13988888888&#39;, &#39;19&#39;),
-    (&#39;95002&#39;, &#39;李四&#39;, &#39;女&#39;, &#39;湖北&#39;, &#39;2002-02-01&#39;, &#39;A002&#39;, &#39;湖北武汉&#39;, &#39;13877777777&#39;, &#39;20&#39;),
-    (&#39;95003&#39;, &#39;张五&#39;, &#39;男&#39;, &#39;广东&#39;, &#39;2001-03-01&#39;, &#39;A001&#39;, &#39;广东广州&#39;, &#39;13766666666&#39;, &#39;21&#39;),
-    (&#39;95004&#39;, &#39;赵六&#39;, &#39;女&#39;, &#39;江西&#39;, &#39;2000-04-01&#39;, &#39;A003&#39;, &#39;江西南昌&#39;, &#39;13655555555&#39;, &#39;22&#39;),
-    (&#39;95005&#39;, &#39;钱七&#39;, &#39;男&#39;, &#39;四川&#39;, &#39;1999-05-01&#39;, &#39;A004&#39;, &#39;四川成都&#39;, &#39;13544444444&#39;, &#39;18&#39;);
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload='this.media="all"'><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/progress_bar.css" media="defer" onload='this.media="all"'><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-blog@2.0.4/css/runtime/runtime.min.css" media="print" onload='this.media="all"'><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload='this.media="all"'><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload='this.media="all"'><script src="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload='this.media="screen"'><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="秦家大胖's Blog" type="application/atom+xml"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/tx.jfif" onerror='onerror=null,src="/img/friend_404.gif"' alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i> <span>Home</span></a></div><div class="menus_item"><a class="site-page" href="/bangumis/index.html"><i class="fa-fw fas fa-home"></i> <span>追番</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i> <span>留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image:url(/img/bj/no10.jpg)"><nav id="nav"><span id="blog-info"><a href="/" title="秦家大胖's Blog"><span class="site-name">秦家大胖's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i> <span>搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i> <span>Home</span></a></div><div class="menus_item"><a class="site-page" href="/bangumis/index.html"><i class="fa-fw fas fa-home"></i> <span>追番</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i> <span>留言板</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">数据库实验二</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-04-02T07:11:20.000Z" title="发表于 2023-04-02 15:11:20">2023-04-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-02T10:32:19.487Z" title="更新于 2023-04-02 18:32:19">2023-04-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span data-flag-title="数据库实验二"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span class="waline-pageview-count" data-path="/posts/e8eabf83.html"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="大胖提示"><a href="#大胖提示" class="headerlink" title="大胖提示"></a>大胖提示</h1><div class="note red icon-padding modern"><i class="note-icon fas fa-fan"></i><p>数据库的第二次实验：注意由于实验未给出任何数据，所以下面代码中的数据均为自己设计,由于第一次实验在创建表是添加了约束,所以在某几个题中会出现一些问题，由于数据和表均为自己设计，所以在参考时尽可能不要一致</p></div><div class="note red icon-padding modern"><i class="note-icon fas fa-fan"></i><p>如果有能力可以在我的实验结构上进行改进</p></div><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">--</span> student表测试数据
+<span class="token constant">INSERT</span> <span class="token constant">INTO</span> <span class="token function">student</span> <span class="token punctuation">(</span>sno<span class="token punctuation">,</span> sname<span class="token punctuation">,</span> sex<span class="token punctuation">,</span> native<span class="token punctuation">,</span> birthday<span class="token punctuation">,</span> classno<span class="token punctuation">,</span> home<span class="token punctuation">,</span> tel<span class="token punctuation">,</span> age<span class="token punctuation">)</span>
+<span class="token constant">VALUES</span>
+    <span class="token punctuation">(</span><span class="token string">'95001'</span><span class="token punctuation">,</span> <span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token string">'男'</span><span class="token punctuation">,</span> <span class="token string">'湖南'</span><span class="token punctuation">,</span> <span class="token string">'2003-01-01'</span><span class="token punctuation">,</span> <span class="token string">'A001'</span><span class="token punctuation">,</span> <span class="token string">'湖南长沙'</span><span class="token punctuation">,</span> <span class="token string">'13988888888'</span><span class="token punctuation">,</span> <span class="token string">'19'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">'95002'</span><span class="token punctuation">,</span> <span class="token string">'李四'</span><span class="token punctuation">,</span> <span class="token string">'女'</span><span class="token punctuation">,</span> <span class="token string">'湖北'</span><span class="token punctuation">,</span> <span class="token string">'2002-02-01'</span><span class="token punctuation">,</span> <span class="token string">'A002'</span><span class="token punctuation">,</span> <span class="token string">'湖北武汉'</span><span class="token punctuation">,</span> <span class="token string">'13877777777'</span><span class="token punctuation">,</span> <span class="token string">'20'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">'95003'</span><span class="token punctuation">,</span> <span class="token string">'张五'</span><span class="token punctuation">,</span> <span class="token string">'男'</span><span class="token punctuation">,</span> <span class="token string">'广东'</span><span class="token punctuation">,</span> <span class="token string">'2001-03-01'</span><span class="token punctuation">,</span> <span class="token string">'A001'</span><span class="token punctuation">,</span> <span class="token string">'广东广州'</span><span class="token punctuation">,</span> <span class="token string">'13766666666'</span><span class="token punctuation">,</span> <span class="token string">'21'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">'95004'</span><span class="token punctuation">,</span> <span class="token string">'赵六'</span><span class="token punctuation">,</span> <span class="token string">'女'</span><span class="token punctuation">,</span> <span class="token string">'江西'</span><span class="token punctuation">,</span> <span class="token string">'2000-04-01'</span><span class="token punctuation">,</span> <span class="token string">'A003'</span><span class="token punctuation">,</span> <span class="token string">'江西南昌'</span><span class="token punctuation">,</span> <span class="token string">'13655555555'</span><span class="token punctuation">,</span> <span class="token string">'22'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">'95005'</span><span class="token punctuation">,</span> <span class="token string">'钱七'</span><span class="token punctuation">,</span> <span class="token string">'男'</span><span class="token punctuation">,</span> <span class="token string">'四川'</span><span class="token punctuation">,</span> <span class="token string">'1999-05-01'</span><span class="token punctuation">,</span> <span class="token string">'A004'</span><span class="token punctuation">,</span> <span class="token string">'四川成都'</span><span class="token punctuation">,</span> <span class="token string">'13544444444'</span><span class="token punctuation">,</span> <span class="token string">'18'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
--- course表测试数据
-INSERT INTO course (cno, cname, lecture, semester, credit, type)
-VALUES
-    (&#39;001&#39;, &#39;大学英语&#39;, 60, 1, 4, &#39;公共课&#39;),
-    (&#39;002&#39;, &#39;高等数学&#39;, 90, 1, 6, &#39;专业基础课&#39;),
-    (&#39;003&#39;, &#39;计算机程序设计&#39;, 80, 2, 6, &#39;专业课&#39;),
-    (&#39;004&#39;, &#39;操作系统&#39;, 70, 2, 4, &#39;专业课&#39;),
-    (&#39;005&#39;, &#39;数据库原理&#39;, 60, 3, 4, &#39;专业课&#39;);
+<span class="token operator">--</span> course表测试数据
+<span class="token constant">INSERT</span> <span class="token constant">INTO</span> <span class="token function">course</span> <span class="token punctuation">(</span>cno<span class="token punctuation">,</span> cname<span class="token punctuation">,</span> lecture<span class="token punctuation">,</span> semester<span class="token punctuation">,</span> credit<span class="token punctuation">,</span> type<span class="token punctuation">)</span>
+<span class="token constant">VALUES</span>
+    <span class="token punctuation">(</span><span class="token string">'001'</span><span class="token punctuation">,</span> <span class="token string">'大学英语'</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">'公共课'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">'002'</span><span class="token punctuation">,</span> <span class="token string">'高等数学'</span><span class="token punctuation">,</span> <span class="token number">90</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token string">'专业基础课'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">'003'</span><span class="token punctuation">,</span> <span class="token string">'计算机程序设计'</span><span class="token punctuation">,</span> <span class="token number">80</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token string">'专业课'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">'004'</span><span class="token punctuation">,</span> <span class="token string">'操作系统'</span><span class="token punctuation">,</span> <span class="token number">70</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">'专业课'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">'005'</span><span class="token punctuation">,</span> <span class="token string">'数据库原理'</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">'专业课'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
--- sc表测试数据
-INSERT INTO sc (sno, cno, grade)
-VALUES
-    (&#39;95001&#39;, &#39;001&#39;, 85),
-    (&#39;95002&#39;, &#39;001&#39;, 78),
-    (&#39;95003&#39;, &#39;001&#39;, 92),
-    (&#39;95004&#39;, &#39;001&#39;, 68),
-    (&#39;95005&#39;, &#39;001&#39;, 79);
+<span class="token operator">--</span> sc表测试数据
+<span class="token constant">INSERT</span> <span class="token constant">INTO</span> <span class="token function">sc</span> <span class="token punctuation">(</span>sno<span class="token punctuation">,</span> cno<span class="token punctuation">,</span> grade<span class="token punctuation">)</span>
+<span class="token constant">VALUES</span>
+    <span class="token punctuation">(</span><span class="token string">'95001'</span><span class="token punctuation">,</span> <span class="token string">'001'</span><span class="token punctuation">,</span> <span class="token number">85</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">'95002'</span><span class="token punctuation">,</span> <span class="token string">'001'</span><span class="token punctuation">,</span> <span class="token number">78</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">'95002'</span><span class="token punctuation">,</span> <span class="token string">'002'</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">'95002'</span><span class="token punctuation">,</span> <span class="token string">'003'</span><span class="token punctuation">,</span> <span class="token number">87</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">'95002'</span><span class="token punctuation">,</span> <span class="token string">'004'</span><span class="token punctuation">,</span> <span class="token number">79</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">'95002'</span><span class="token punctuation">,</span> <span class="token string">'005'</span><span class="token punctuation">,</span> <span class="token number">88</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">'95003'</span><span class="token punctuation">,</span> <span class="token string">'001'</span><span class="token punctuation">,</span> <span class="token number">92</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">'95004'</span><span class="token punctuation">,</span> <span class="token string">'001'</span><span class="token punctuation">,</span> <span class="token number">68</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">'95005'</span><span class="token punctuation">,</span> <span class="token string">'001'</span><span class="token punctuation">,</span> <span class="token number">79</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
--- depart表测试数据
-INSERT INTO depart (dno, dname, tel)
-VALUES
-    (&#39;100001&#39;, &#39;计算机科学与技术系&#39;, &#39;666666&#39;),
-    (&#39;100002&#39;, &#39;外语系&#39;, &#39;777777&#39;),
-    (&#39;100003&#39;, &#39;数学系&#39;, &#39;888888&#39;);
+<span class="token operator">--</span> depart表测试数据
+<span class="token constant">INSERT</span> <span class="token constant">INTO</span> <span class="token function">depart</span> <span class="token punctuation">(</span>dno<span class="token punctuation">,</span> dname<span class="token punctuation">,</span> tel<span class="token punctuation">)</span>
+<span class="token constant">VALUES</span>
+    <span class="token punctuation">(</span><span class="token string">'100001'</span><span class="token punctuation">,</span> <span class="token string">'计算机科学与技术系'</span><span class="token punctuation">,</span> <span class="token string">'666666'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">'100002'</span><span class="token punctuation">,</span> <span class="token string">'外语系'</span><span class="token punctuation">,</span> <span class="token string">'777777'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">'100003'</span><span class="token punctuation">,</span> <span class="token string">'数学系'</span><span class="token punctuation">,</span> <span class="token string">'888888'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
--- class表测试数据
-INSERT INTO class (classno, classname, dno)
-VALUES
-    (&#39;A001&#39;, &#39;计算机1班&#39;, &#39;100001&#39;),
-    (&#39;A002&#39;, &#39;英语1班&#39;, &#39;100002&#39;),
-    (&#39;A003&#39;, &#39;数学1班&#39;, &#39;100003&#39;),
-    (&#39;A004&#39;, &#39;计算机2班&#39;, &#39;100001&#39;);
+<span class="token operator">--</span> <span class="token keyword">class</span>表测试数据
+<span class="token constant">INSERT</span> <span class="token constant">INTO</span> <span class="token keyword">class</span> <span class="token punctuation">(</span>classno<span class="token punctuation">,</span> classname<span class="token punctuation">,</span> dno<span class="token punctuation">)</span>
+<span class="token constant">VALUES</span>
+    <span class="token punctuation">(</span><span class="token string">'A001'</span><span class="token punctuation">,</span> <span class="token string">'计算机1班'</span><span class="token punctuation">,</span> <span class="token string">'100001'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">'A002'</span><span class="token punctuation">,</span> <span class="token string">'英语1班'</span><span class="token punctuation">,</span> <span class="token string">'100002'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">'A003'</span><span class="token punctuation">,</span> <span class="token string">'数学1班'</span><span class="token punctuation">,</span> <span class="token string">'100003'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">'A004'</span><span class="token punctuation">,</span> <span class="token string">'计算机2班'</span><span class="token punctuation">,</span> <span class="token string">'100001'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
--- 1.
-select sno, sname
+<span class="token operator">--</span> <span class="token number">1.</span>
+select sno<span class="token punctuation">,</span> sname
 from student
-where classno &#x3D; &#39;A001&#39;;
+where classno <span class="token operator">=</span> <span class="token string">'A001'</span><span class="token punctuation">;</span>
 
--- 2.
-select sno, cno
+<span class="token operator">--</span> <span class="token number">2.</span>
+select sno<span class="token punctuation">,</span> cno
 from sc
-where cno is not null;
+where cno is not <span class="token keyword">null</span><span class="token punctuation">;</span>
 
--- 3.
-select sno, grade
+<span class="token operator">--</span> <span class="token number">3.</span>
+select sno<span class="token punctuation">,</span> grade
 from sc
-where cno &#x3D; &#39;001&#39;
-order by grade DESC, sno ASC;
+where cno <span class="token operator">=</span> <span class="token string">'001'</span>
+order by grade <span class="token constant">DESC</span><span class="token punctuation">,</span> sno <span class="token constant">ASC</span><span class="token punctuation">;</span>
 
--- 4.
-select sno, grade * 0.75 AS grade
+<span class="token operator">--</span> <span class="token number">4.</span>
+select sno<span class="token punctuation">,</span> grade <span class="token operator">*</span> <span class="token number">0.75</span> <span class="token constant">AS</span> grade
 from sc
-where cno &#x3D; &#39;001&#39;
-  AND grade between 80 and 90;
+where cno <span class="token operator">=</span> <span class="token string">'001'</span>
+  <span class="token constant">AND</span> grade between <span class="token number">80</span> and <span class="token number">90</span><span class="token punctuation">;</span>
 
--- 5.
-select *
+<span class="token operator">--</span> <span class="token number">5.</span>
+select <span class="token operator">*</span>
 from student
-where classno in (&#39;A001&#39;, &#39;A002&#39;)
-  AND sname like &#39;张%&#39;;
+where classno <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token string">'A001'</span><span class="token punctuation">,</span> <span class="token string">'A002'</span><span class="token punctuation">)</span>
+  <span class="token constant">AND</span> sname like <span class="token string">'张%'</span><span class="token punctuation">;</span>
 
--- 6.
-select sno, cno
+<span class="token operator">--</span> <span class="token number">6.</span>
+select sno<span class="token punctuation">,</span> cno
 from sc
-where grade is null;
+where grade is <span class="token keyword">null</span><span class="token punctuation">;</span>
 
--- 7.
-SELECT course.cno, COUNT(sc.sno) AS 选课人数
-FROM course
-LEFT JOIN sc ON course.cno &#x3D; sc.cno
-GROUP BY course.cno;
+<span class="token operator">--</span> <span class="token number">7.</span>
+<span class="token constant">SELECT</span> course<span class="token punctuation">.</span>cno<span class="token punctuation">,</span> <span class="token constant">COUNT</span><span class="token punctuation">(</span>sc<span class="token punctuation">.</span>sno<span class="token punctuation">)</span> <span class="token constant">AS</span> 选课人数
+<span class="token constant">FROM</span> course
+<span class="token constant">LEFT</span> <span class="token constant">JOIN</span> sc <span class="token constant">ON</span> course<span class="token punctuation">.</span>cno <span class="token operator">=</span> sc<span class="token punctuation">.</span>cno
+<span class="token constant">GROUP</span> <span class="token constant">BY</span> course<span class="token punctuation">.</span>cno<span class="token punctuation">;</span>
 
--- 8.
-select classno, count(sno)
+<span class="token operator">--</span> <span class="token number">8.</span>
+select classno<span class="token punctuation">,</span> <span class="token function">count</span><span class="token punctuation">(</span>sno<span class="token punctuation">)</span>
 from student
-group by classno;
+group by classno<span class="token punctuation">;</span>
 
--- 9.
-select student.sname, sc.cno, sc.grade
-from student,sc
-where student.sno &#x3D; sc.sno;
+<span class="token operator">--</span> <span class="token number">9.</span>
+select student<span class="token punctuation">.</span>sname<span class="token punctuation">,</span> sc<span class="token punctuation">.</span>cno<span class="token punctuation">,</span> sc<span class="token punctuation">.</span>grade
+from student<span class="token punctuation">,</span>sc
+where student<span class="token punctuation">.</span>sno <span class="token operator">=</span> sc<span class="token punctuation">.</span>sno<span class="token punctuation">;</span>
 
--- 10.注意由于之前创建表是的约束，导致这条语句不会有结果输出
-SELECT sno
-FROM sc
-WHERE cno &#x3D; &#39;001&#39;
-  AND sno IN (SELECT sno FROM sc
-              WHERE cno &#x3D; &#39;002&#39;);
+<span class="token operator">--</span> <span class="token number">10</span>
+<span class="token constant">SELECT</span> sno
+<span class="token constant">FROM</span> sc
+<span class="token constant">WHERE</span> cno <span class="token operator">=</span> <span class="token string">'001'</span>
+  <span class="token constant">AND</span> sno <span class="token constant">IN</span> <span class="token punctuation">(</span><span class="token constant">SELECT</span> sno <span class="token constant">FROM</span> sc
+              <span class="token constant">WHERE</span> cno <span class="token operator">=</span> <span class="token string">'002'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
--- 11.
-SELECT student.sname, AVG(grade) AS avg_grade
-FROM sc INNER JOIN student ON sc.sno &#x3D; student.sno
-GROUP BY student.sno, student.sname
-HAVING AVG(sc.grade) &gt; 85;
+<span class="token operator">--</span> <span class="token number">11.</span>
+<span class="token constant">SELECT</span> student<span class="token punctuation">.</span>sname<span class="token punctuation">,</span> <span class="token constant">AVG</span><span class="token punctuation">(</span>grade<span class="token punctuation">)</span> <span class="token constant">AS</span> avg_grade
+<span class="token constant">FROM</span> sc <span class="token constant">INNER</span> <span class="token constant">JOIN</span> student <span class="token constant">ON</span> sc<span class="token punctuation">.</span>sno <span class="token operator">=</span> student<span class="token punctuation">.</span>sno
+<span class="token constant">GROUP</span> <span class="token constant">BY</span> student<span class="token punctuation">.</span>sno<span class="token punctuation">,</span> student<span class="token punctuation">.</span>sname
+<span class="token constant">HAVING</span> <span class="token constant">AVG</span><span class="token punctuation">(</span>sc<span class="token punctuation">.</span>grade<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">85</span><span class="token punctuation">;</span>
 
--- 12.
+<span class="token operator">--</span> <span class="token number">12.</span>
 select sname from student
-inner join sc on student.sno &#x3D; sc.sno
-where cno &#x3D; &#39;001&#39;;
+inner join sc on student<span class="token punctuation">.</span>sno <span class="token operator">=</span> sc<span class="token punctuation">.</span>sno
+where cno <span class="token operator">=</span> <span class="token string">'001'</span><span class="token punctuation">;</span>
 
--- 13.
+<span class="token operator">--</span> <span class="token number">13.</span>
 select cname from course
-inner join sc on sc.cno &#x3D; course.cno
-where sno &#x3D; &#39;95002&#39;;
+inner join sc on sc<span class="token punctuation">.</span>cno <span class="token operator">=</span> course<span class="token punctuation">.</span>cno
+where sno <span class="token operator">=</span> <span class="token string">'95002'</span><span class="token punctuation">;</span>
 
--- 14.
--- 14.1 男性或大于19的姓名,课程号,成绩
-SELECT sname, cno, grade
-FROM sc,student
-WHERE (sex &#x3D; &#39;男&#39;
-    OR age &gt; 19)
-  AND sc.sno &#x3D; student.sno
--- 14.2 两个表联合
-select sname, cname, grade
-from course,
-     (SELECT sname, cno, grade
-      FROM sc,
+<span class="token operator">--</span> <span class="token number">14.</span>
+<span class="token operator">--</span> <span class="token number">14.1</span> 男性或大于<span class="token number">19</span>的姓名<span class="token punctuation">,</span>课程号<span class="token punctuation">,</span>成绩
+<span class="token constant">SELECT</span> sname<span class="token punctuation">,</span> cno<span class="token punctuation">,</span> grade
+<span class="token constant">FROM</span> sc<span class="token punctuation">,</span>student
+<span class="token constant">WHERE</span> <span class="token punctuation">(</span>sex <span class="token operator">=</span> <span class="token string">'男'</span>
+    <span class="token constant">OR</span> age <span class="token operator">></span> <span class="token number">19</span><span class="token punctuation">)</span>
+  <span class="token constant">AND</span> sc<span class="token punctuation">.</span>sno <span class="token operator">=</span> student<span class="token punctuation">.</span>sno
+<span class="token operator">--</span> <span class="token number">14.2</span> 两个表联合
+select sname<span class="token punctuation">,</span> cname<span class="token punctuation">,</span> grade
+from course<span class="token punctuation">,</span>
+     <span class="token punctuation">(</span><span class="token constant">SELECT</span> sname<span class="token punctuation">,</span> cno<span class="token punctuation">,</span> grade
+      <span class="token constant">FROM</span> sc<span class="token punctuation">,</span>
            student
-      WHERE (sex &#x3D; &#39;男&#39;
-          OR age &gt; 19)
-        AND sc.sno &#x3D; student.sno) AS sons
-where course.cno &#x3D; sons.cno;
+      <span class="token constant">WHERE</span> <span class="token punctuation">(</span>sex <span class="token operator">=</span> <span class="token string">'男'</span>
+          <span class="token constant">OR</span> age <span class="token operator">></span> <span class="token number">19</span><span class="token punctuation">)</span>
+        <span class="token constant">AND</span> sc<span class="token punctuation">.</span>sno <span class="token operator">=</span> student<span class="token punctuation">.</span>sno<span class="token punctuation">)</span> <span class="token constant">AS</span> sons
+where course<span class="token punctuation">.</span>cno <span class="token operator">=</span> sons<span class="token punctuation">.</span>cno<span class="token punctuation">;</span>
 
--- 15
--- 15.1 查询出的每个学生的学号,平均分和总分
-select sno, AVG(grade) AS 平均分, SUM(grade) AS 总分
+<span class="token operator">--</span> <span class="token number">15</span>
+<span class="token operator">--</span> <span class="token number">15.1</span> 查询出的每个学生的学号<span class="token punctuation">,</span>平均分和总分
+select sno<span class="token punctuation">,</span> <span class="token constant">AVG</span><span class="token punctuation">(</span>grade<span class="token punctuation">)</span> <span class="token constant">AS</span> 平均分<span class="token punctuation">,</span> <span class="token constant">SUM</span><span class="token punctuation">(</span>grade<span class="token punctuation">)</span> <span class="token constant">AS</span> 总分
 from sc
-group by sno;
--- 15.1 查询出的每个学生的名字,平均分和总分
-select sname, sons.平均分, sons.总分
-from student,
-     (select sno, AVG(grade) AS 平均分, SUM(grade) AS 总分
+group by sno<span class="token punctuation">;</span>
+<span class="token operator">--</span> <span class="token number">15.1</span> 查询出的每个学生的名字<span class="token punctuation">,</span>平均分和总分
+select sname<span class="token punctuation">,</span> sons<span class="token punctuation">.</span>平均分<span class="token punctuation">,</span> sons<span class="token punctuation">.</span>总分
+from student<span class="token punctuation">,</span>
+     <span class="token punctuation">(</span>select sno<span class="token punctuation">,</span> <span class="token constant">AVG</span><span class="token punctuation">(</span>grade<span class="token punctuation">)</span> <span class="token constant">AS</span> 平均分<span class="token punctuation">,</span> <span class="token constant">SUM</span><span class="token punctuation">(</span>grade<span class="token punctuation">)</span> <span class="token constant">AS</span> 总分
       from sc
-      group by sno) AS sons
-where student.sno &#x3D; sons.sno;
+      group by sno<span class="token punctuation">)</span> <span class="token constant">AS</span> sons
+where student<span class="token punctuation">.</span>sno <span class="token operator">=</span> sons<span class="token punctuation">.</span>sno<span class="token punctuation">;</span>
 
--- 16 注意由于数据问题导致这条语句也不能查出任何语句
--- 16.1先查询每个学生个选修了几门课
-select sno, count(cno) AS 选修的课程数
+<span class="token operator">--</span> <span class="token number">16</span>
+<span class="token operator">--</span> <span class="token number">16.1</span>先查询每个学生个选修了几门课
+select sno<span class="token punctuation">,</span> <span class="token function">count</span><span class="token punctuation">(</span>cno<span class="token punctuation">)</span> <span class="token constant">AS</span> 选修的课程数
 from sc
-group by sno;
--- 16.2查询一共有多少门课
-select count(cno)
-from course;
--- 16.3 将表联合
-select sc.sno
-from sc,
-     (select sno, count(cno) AS 选修的课程数 from sc group by sno) AS sons
-where sc.sno &#x3D; sons.sno
-  AND sons.选修的课程数 &#x3D; (select count(cno) from course);
--- 16.4继续将表联合
-select sname
-from student,
-     (select sc.sno
-      from sc,
-           (select sno, count(cno) AS 选修的课程数 from sc group by sno) AS sons
-      where sc.sno &#x3D; sons.sno
-        AND sons.选修的课程数 &#x3D; (select count(cno) from course)) AS sons
-where student.sno &#x3D; sons.sno;
+group by sno<span class="token punctuation">;</span>
+<span class="token operator">--</span> <span class="token number">16.2</span>查询一共有多少门课
+select <span class="token function">count</span><span class="token punctuation">(</span>cno<span class="token punctuation">)</span>
+from course<span class="token punctuation">;</span>
+<span class="token operator">--</span> <span class="token number">16.3</span> 将表联合
+select <span class="token constant">DISTINCT</span>  sc<span class="token punctuation">.</span>sno
+from sc<span class="token punctuation">,</span>
+     <span class="token punctuation">(</span>select sno<span class="token punctuation">,</span> <span class="token function">count</span><span class="token punctuation">(</span>cno<span class="token punctuation">)</span> <span class="token constant">AS</span> 选修的课程数 from sc group by sno<span class="token punctuation">)</span> <span class="token constant">AS</span> sons
+where sc<span class="token punctuation">.</span>sno <span class="token operator">=</span> sons<span class="token punctuation">.</span>sno
+  <span class="token constant">AND</span> sons<span class="token punctuation">.</span>选修的课程数 <span class="token operator">=</span> <span class="token punctuation">(</span>select <span class="token function">count</span><span class="token punctuation">(</span>cno<span class="token punctuation">)</span> from course<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">--</span> <span class="token number">16.4</span>继续将表联合
+select <span class="token constant">DISTINCT</span>  sname
+from student<span class="token punctuation">,</span>
+     <span class="token punctuation">(</span>select sc<span class="token punctuation">.</span>sno
+      from sc<span class="token punctuation">,</span>
+           <span class="token punctuation">(</span>select sno<span class="token punctuation">,</span> <span class="token function">count</span><span class="token punctuation">(</span>cno<span class="token punctuation">)</span> <span class="token constant">AS</span> 选修的课程数 from sc group by sno<span class="token punctuation">)</span> <span class="token constant">AS</span> sons
+      where sc<span class="token punctuation">.</span>sno <span class="token operator">=</span> sons<span class="token punctuation">.</span>sno
+        <span class="token constant">AND</span> sons<span class="token punctuation">.</span>选修的课程数 <span class="token operator">=</span> <span class="token punctuation">(</span>select <span class="token function">count</span><span class="token punctuation">(</span>cno<span class="token punctuation">)</span> from course<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token constant">AS</span> sons
+where student<span class="token punctuation">.</span>sno <span class="token operator">=</span> sons<span class="token punctuation">.</span>sno<span class="token punctuation">;</span>
 
--- 17.由于我的字段未设置age这个字段,所以无法修改
-update student set age&#x3D;21 where sno&#x3D;&#39;95002&#39;;
+<span class="token operator">--</span> <span class="token number">17.</span>
+update student <span class="token keyword">set</span> age<span class="token operator">=</span><span class="token number">21</span> where sno<span class="token operator">=</span><span class="token string">'95002'</span><span class="token punctuation">;</span>
 
--- 18
--- 18.1先查询李丽在那个班
+<span class="token operator">--</span> <span class="token number">18</span>
+<span class="token operator">--</span> <span class="token number">18.1</span>先查询李丽在那个班
 select classno
 from student
-where sname &#x3D; &#39;张三&#39;;
--- 18.2将表联合
-select *
+where sname <span class="token operator">=</span> <span class="token string">'张三'</span><span class="token punctuation">;</span>
+<span class="token operator">--</span> <span class="token number">18.2</span>将表联合
+select <span class="token operator">*</span>
 from student
-where classno &#x3D; (select classno from student where sname &#x3D; &#39;张三&#39;);
+where classno <span class="token operator">=</span> <span class="token punctuation">(</span>select classno from student where sname <span class="token operator">=</span> <span class="token string">'张三'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
--- 19
--- 19.1 先找到1班的学生的学号
+<span class="token operator">--</span> <span class="token number">19</span>
+<span class="token operator">--</span> <span class="token number">19.1</span> 先找到<span class="token number">1</span>班的学生的学号
 select sno
 from student
-where classno &#x3D; &#39;A001&#39;;
--- 19.2 在将1班的学生成绩都加10分
+where classno <span class="token operator">=</span> <span class="token string">'A001'</span><span class="token punctuation">;</span>
+<span class="token operator">--</span> <span class="token number">19.2</span> 在将<span class="token number">1</span>班的学生成绩都加<span class="token number">10</span>分
 update sc
-set grade&#x3D;grade + 10 from sc
-join (select sno from student where classno &#x3D; &#39;A001&#39;) AS sons on sc.sno &#x3D; sons.sno;
+<span class="token keyword">set</span> grade<span class="token operator">=</span>grade <span class="token operator">+</span> <span class="token number">10</span> from sc
+<span class="token function">join</span> <span class="token punctuation">(</span>select sno from student where classno <span class="token operator">=</span> <span class="token string">'A001'</span><span class="token punctuation">)</span> <span class="token constant">AS</span> sons on sc<span class="token punctuation">.</span>sno <span class="token operator">=</span> sons<span class="token punctuation">.</span>sno<span class="token punctuation">;</span>
 
--- 20
--- 20.1 先找到未选课的学生的学号
+<span class="token operator">--</span> <span class="token number">20</span>
+<span class="token operator">--</span> <span class="token number">20.1</span> 先找到未选课的学生的学号
 select sno from sc
-where cno is null;
--- 20.2 将两个表联合
-delete from student
+where cno is <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token operator">--</span> <span class="token number">20.2</span> 将两个表联合
+<span class="token keyword">delete</span> from student
 from student
-join (select sno from sc where cno is null) AS sons on student.sno &#x3D; sons.sno;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div class="note red icon-padding modern"><i class="note-icon fas fa-fan"></i><p>下方进行评论，:joy::joy::joy::joy:</p></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者:</span> <span class="post-copyright-info"><a href="https://100qin10086.github.io">秦三顺</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接:</span> <span class="post-copyright-info"><a href="https://100qin10086.github.io/posts/e8eabf83.html">https://100qin10086.github.io/posts/e8eabf83.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明:</span> <span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://100qin10086.github.io" target="_blank">秦家大胖's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/bj/no10.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload='this.media="all"'><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/4263f441.html" title="平衡二叉树"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no9.jpg" onerror='onerror=null,src="/img/404.jpg"' alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">平衡二叉树</div></div></a></div></nav><hr><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i> <span>评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/tx.jfif" onerror='this.onerror=null,this.src="/img/friend_404.gif"' alt="avatar"></div><div class="author-info__name">秦三顺</div><div class="author-info__description">一个专注于技术的博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/100qin10086" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:3048413889@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="tencent://Message/?Uin=3048413889&amp;websiteName=www.oicqzone.com&amp;Menu=yes" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="https://blog.csdn.net/m0_63639194?type=blog" target="_blank" title="CSDN"><i class="fa fa-address-card"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">小站新增留言板,文章评论功能，可以填写您的邮箱后再评论,不好的评论会删除！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%A7%E8%83%96%E6%8F%90%E7%A4%BA"><span class="toc-number">1.</span> <span class="toc-text">大胖提示</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/e8eabf83.html" title="数据库实验二"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no10.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="数据库实验二"></a><div class="content"><a class="title" href="/posts/e8eabf83.html" title="数据库实验二">数据库实验二</a><time datetime="2023-04-02T07:11:20.000Z" title="发表于 2023-04-02 15:11:20">2023-04-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/4263f441.html" title="平衡二叉树"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no9.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="平衡二叉树"></a><div class="content"><a class="title" href="/posts/4263f441.html" title="平衡二叉树">平衡二叉树</a><time datetime="2023-04-01T12:18:29.000Z" title="发表于 2023-04-01 20:18:29">2023-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e5052ecb.html" title="二叉排序树"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no8.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="二叉排序树"></a><div class="content"><a class="title" href="/posts/e5052ecb.html" title="二叉排序树">二叉排序树</a><time datetime="2023-03-31T10:51:54.000Z" title="发表于 2023-03-31 18:51:54">2023-03-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e2210717.html" title="Spring-声明式事务"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no7.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="Spring-声明式事务"></a><div class="content"><a class="title" href="/posts/e2210717.html" title="Spring-声明式事务">Spring-声明式事务</a><time datetime="2023-03-30T10:51:05.000Z" title="发表于 2023-03-30 18:51:05">2023-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/8950f30e.html" title="Spring-JdbcTemplate"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/n6.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="Spring-JdbcTemplate"></a><div class="content"><a class="title" href="/posts/8950f30e.html" title="Spring-JdbcTemplate">Spring-JdbcTemplate</a><time datetime="2023-03-30T03:15:04.000Z" title="发表于 2023-03-30 11:15:04">2023-03-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 秦三顺</div><div class="framework-info"><span>框架</span> <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题</span> <a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>function loadWaline () {
+<span class="token function">join</span> <span class="token punctuation">(</span>select sno from sc where cno is <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token constant">AS</span> sons on student<span class="token punctuation">.</span>sno <span class="token operator">=</span> sons<span class="token punctuation">.</span>sno<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><div class="note red icon-padding modern"><i class="note-icon fas fa-fan"></i><p>下方进行评论，:joy::joy::joy::joy:</p></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者:</span> <span class="post-copyright-info"><a href="https://100qin10086.github.io">秦三顺</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接:</span> <span class="post-copyright-info"><a href="https://100qin10086.github.io/posts/e8eabf83.html">https://100qin10086.github.io/posts/e8eabf83.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明:</span> <span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://100qin10086.github.io" target="_blank">秦家大胖's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/bj/no10.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload='this.media="all"'><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/4263f441.html" title="平衡二叉树"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no9.jpg" onerror='onerror=null,src="/img/404.jpg"' alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">平衡二叉树</div></div></a></div></nav><hr><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i> <span>评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/tx.jfif" onerror='this.onerror=null,this.src="/img/friend_404.gif"' alt="avatar"></div><div class="author-info__name">秦三顺</div><div class="author-info__description">一个专注于技术的博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/100qin10086" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:3048413889@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="tencent://Message/?Uin=3048413889&amp;websiteName=www.oicqzone.com&amp;Menu=yes" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="https://blog.csdn.net/m0_63639194?type=blog" target="_blank" title="CSDN"><i class="fa fa-address-card"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">小站新增留言板,文章评论功能，可以填写您的邮箱后再评论,不好的评论会删除！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%A7%E8%83%96%E6%8F%90%E7%A4%BA"><span class="toc-number">1.</span> <span class="toc-text">大胖提示</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/e8eabf83.html" title="数据库实验二"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no10.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="数据库实验二"></a><div class="content"><a class="title" href="/posts/e8eabf83.html" title="数据库实验二">数据库实验二</a><time datetime="2023-04-02T07:11:20.000Z" title="发表于 2023-04-02 15:11:20">2023-04-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/4263f441.html" title="平衡二叉树"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no9.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="平衡二叉树"></a><div class="content"><a class="title" href="/posts/4263f441.html" title="平衡二叉树">平衡二叉树</a><time datetime="2023-04-01T12:18:29.000Z" title="发表于 2023-04-01 20:18:29">2023-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e5052ecb.html" title="二叉排序树"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no8.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="二叉排序树"></a><div class="content"><a class="title" href="/posts/e5052ecb.html" title="二叉排序树">二叉排序树</a><time datetime="2023-03-31T10:51:54.000Z" title="发表于 2023-03-31 18:51:54">2023-03-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e2210717.html" title="Spring-声明式事务"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no7.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="Spring-声明式事务"></a><div class="content"><a class="title" href="/posts/e2210717.html" title="Spring-声明式事务">Spring-声明式事务</a><time datetime="2023-03-30T10:51:05.000Z" title="发表于 2023-03-30 18:51:05">2023-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/8950f30e.html" title="Spring-JdbcTemplate"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/n6.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="Spring-JdbcTemplate"></a><div class="content"><a class="title" href="/posts/8950f30e.html" title="Spring-JdbcTemplate">Spring-JdbcTemplate</a><time datetime="2023-03-30T03:15:04.000Z" title="发表于 2023-03-30 11:15:04">2023-03-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 秦三顺</div><div class="framework-info"><span>框架</span> <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题</span> <a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>function loadWaline () {
   function initWaline () {
     const waline = Waline.init(Object.assign({
       el: '#waline-wrap',
