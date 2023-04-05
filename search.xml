@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>无重复字符的最长子串</title>
+      <link href="/posts/4cd9164b.html"/>
+      <url>/posts/4cd9164b.html</url>
+      
+        <content type="html"><![CDATA[<h1 id><a href="#" class="headerlink" title></a><div class="note orange no-icon flat"><p>给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度 </p></div></h1><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">输入: s = "abcabcbb"输出: 3 解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>1.创建一个HashMap，里面存储字符串中的字符和它们最后一次出现的索引<br>2.定义两个变量一个max为最长字串的长度,一个是start,字串的起始位置<br>3.对字符串进行扫描并进行判断，如果在HashMap中存在该字符，更新子串的起始位置为她的前一个位置和当前位置之间的较大值start=Math.max(map.get(c)+1,start);<br>4.计算当前子串的长度,并更新为最大长度  max=Math.max(max,i-start+1)<br>5.最后将字符串的索引存储到map中map.put(c,i);<br><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">lengthOfLongestSubstring</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>       <span class="token comment">// 创建一个 HashMap 来存储字符串中的字符和它们最后一次出现的索引</span>       <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Character</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">></span></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token keyword">int</span> max<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>start<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>       <span class="token comment">// 遍历字符串</span>       <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>           <span class="token keyword">char</span> c <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment">// 如果当前字符之前已经出现过，更新子串的起始位置为它的前一个位置和当前起始位置之间的较大值</span>           <span class="token keyword">if</span> <span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>               start<span class="token operator">=</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>start<span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token punctuation">&#125;</span>           <span class="token comment">// 计算当前子串的长度，并更新最大长度</span>           max<span class="token operator">=</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>max<span class="token punctuation">,</span>i<span class="token operator">-</span>start<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment">// 把当前字符的索引存储到 map 中</span>           map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>c<span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token punctuation">&#125;</span>       <span class="token keyword">return</span> max<span class="token punctuation">;</span>   <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 力扣 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 力扣 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>javaweb springMVC springBoot文件的上传与下载总结</title>
       <link href="/posts/73d27226.html"/>
       <url>/posts/73d27226.html</url>
