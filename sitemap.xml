@@ -20,24 +20,6 @@
   </url>
   
   <url>
-    <loc>https://100qin10086.github.io/posts/b4566c99.html</loc>
-    
-    <lastmod>2023-06-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://100qin10086.github.io/posts/8950f30e.html</loc>
-    
-    <lastmod>2023-06-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://100qin10086.github.io/posts/e2210717.html</loc>
     
     <lastmod>2023-06-25</lastmod>
@@ -227,7 +209,7 @@
   </url>
   
   <url>
-    <loc>https://100qin10086.github.io/posts/14501235.html</loc>
+    <loc>https://100qin10086.github.io/categories/index.html</loc>
     
     <lastmod>2023-06-25</lastmod>
     
@@ -236,7 +218,16 @@
   </url>
   
   <url>
-    <loc>https://100qin10086.github.io/categories/index.html</loc>
+    <loc>https://100qin10086.github.io/posts/b4566c99.html</loc>
+    
+    <lastmod>2023-06-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://100qin10086.github.io/posts/8950f30e.html</loc>
     
     <lastmod>2023-06-25</lastmod>
     
@@ -355,13 +346,6 @@
   
   <url>
     <loc>https://100qin10086.github.io/categories/%E5%8A%9B%E6%89%A3/</loc>
-    <lastmod>2023-06-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://100qin10086.github.io/categories/%E8%AE%B0%E5%BD%95%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2023-06-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
