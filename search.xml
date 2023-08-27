@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>复习</title>
+      <link href="/posts/20e5b247.html"/>
+      <url>/posts/20e5b247.html</url>
+      
+        <content type="html"><![CDATA[<h1 id><a href="#" class="headerlink" title></a><div class="note purple no-icon flat"><p>java基础复习</p></div></h1><h2 id="-1"><a href="#-1" class="headerlink" title></a><p class="p yellow">Java程序设计环境</p></h2><p>·我认为最重要的一步是配置环境,配置环境的目的是将jdk/bin目录添加到可执行路径中——可执行路径是操作系统查找可执行文件时所遍历的目录列表<br>·当我们编译并运行了一个Java程序时都发生了什么。<br>当我们用命令行运行Java程序时再终端窗口会输入 <kbd>javac Welcome。java</kbd> + <kbd>D</kbd></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> java基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>赫夫曼编码</title>
       <link href="/posts/8e49ee69.html"/>
       <url>/posts/8e49ee69.html</url>
