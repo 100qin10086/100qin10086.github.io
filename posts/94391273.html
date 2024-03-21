@@ -1,0 +1,488 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><title>vue2复习 | 秦家大胖's Blog</title><meta name="author" content="秦三顺"><meta name="copyright" content="秦三顺"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Vue2复习and预习  VUE的MVVM·一图胜千言 解读MVVM思想·M:即Model,模型,包括数据和一些基本操作·V:即View,视图,页面渲染结果·VM:即View-Model,模型与视图的双向操作(无需开发人员干涉)·在 MVVM之前，开发人员从后端获取需要的数据模型，然后要通过 DOM 操作 Model渲染到View中。而后当用户操作视图，我们还需要通过 DOM获取 View 中的数"><meta property="og:type" content="article"><meta property="og:title" content="vue2复习"><meta property="og:url" content="https://100qin10086.github.io/posts/94391273.html"><meta property="og:site_name" content="秦家大胖&#39;s Blog"><meta property="og:description" content="Vue2复习and预习  VUE的MVVM·一图胜千言 解读MVVM思想·M:即Model,模型,包括数据和一些基本操作·V:即View,视图,页面渲染结果·VM:即View-Model,模型与视图的双向操作(无需开发人员干涉)·在 MVVM之前，开发人员从后端获取需要的数据模型，然后要通过 DOM 操作 Model渲染到View中。而后当用户操作视图，我们还需要通过 DOM获取 View 中的数"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://100qin10086.github.io/img/tx.jfif"><meta property="article:published_time" content="2024-03-21T00:59:59.000Z"><meta property="article:modified_time" content="2024-03-21T05:12:47.499Z"><meta property="article:author" content="秦三顺"><meta property="article:tag" content="VUE"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://100qin10086.github.io/img/tx.jfif"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://100qin10086.github.io/posts/94391273.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="manifest" href="/manifest.json"><meta name="msapplication-TileColor" content="#3b70fc"><link rel="apple-touch-icon" sizes="180x180" href="/img/siteicon/128.png"><link rel="icon" type="image/png" sizes="32x32" href="/img/siteicon/32.png"><link rel="icon" type="image/png" sizes="16x16" href="/img/siteicon/16.png"><link rel="mask-icon" href="/img/siteicon/128.png" color="#5bbad5"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload='this.media="all"'><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload='this.media="all"'><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE={title:"vue2复习",isPost:!0,isHome:!1,isHighlightShrink:!1,isToc:!0,postUpdate:"2024-03-21 13:12:47"}</script><noscript><style>#nav{opacity:1}.justified-gallery img{opacity:1}#post-meta time,#recent-posts time{display:inline!important}</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload='this.media="all"'><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/progress_bar.css" media="defer" onload='this.media="all"'><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-blog@2.0.4/css/runtime/runtime.min.css" media="print" onload='this.media="all"'><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload='this.media="all"'><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload='this.media="all"'><script src="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload='this.media="screen"'><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="秦家大胖's Blog" type="application/atom+xml"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/tx.jfif" onerror='onerror=null,src="/img/friend_404.gif"' alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i> <span>Home</span></a></div><div class="menus_item"><a class="site-page" href="/bangumis/index.html"><i class="fa-fw fas fa-home"></i> <span>追番</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i> <span>留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="秦家大胖's Blog"><span class="site-name">秦家大胖's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i> <span>搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i> <span>Home</span></a></div><div class="menus_item"><a class="site-page" href="/bangumis/index.html"><i class="fa-fw fas fa-home"></i> <span>追番</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i> <span>留言板</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">vue2复习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-21T00:59:59.000Z" title="发表于 2024-03-21 08:59:59">2024-03-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-03-21T05:12:47.499Z" title="更新于 2024-03-21 13:12:47">2024-03-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Vue%E6%A1%86%E6%9E%B6/">Vue框架</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" data-flag-title="vue2复习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1><a href="#" class="headerlink"></a><div class="note purple no-icon flat"><p>Vue2复习and预习</p></div></h1><h2 id="VUE的MVVM"><a href="#VUE的MVVM" class="headerlink" title="VUE的MVVM"></a>VUE的MVVM</h2><p>·一图胜千言<br></p><div class="img-wrap"><div class="img-bg"><img class="img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://qgqliving-10000.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87/7e8025b3fac9caa67c605889f258aa81.png"></div></div><p></p><h3 id="解读MVVM思想"><a href="#解读MVVM思想" class="headerlink" title="解读MVVM思想"></a>解读MVVM思想</h3><p>·M:即Model,模型,包括数据和一些基本操作<br>·V:即View,视图,页面渲染结果<br>·VM:即View-Model,模型与视图的双向操作(无需开发人员干涉)<br>·在 MVVM之前，开发人员从后端获取需要的数据模型，然后要通过 DOM 操作 Model渲染到View中。而后当用户操作视图，<br>我们还需要通过 DOM获取 View 中的数据,然后同步到Model 中。<br>·而 MVVM中的VM 要做的事情就是把DOM 操作完全封装起来，开发人员不用再关心Model和View之间是如何互相。<br>·只要我们 Model 发生了改变，View上自然就会表现出来<br>·当用户修改了View，Model 中的数据也会跟着改变。<br>·结果：把开发人员从繁琐的 DOM操作中解放出来，把关注点放在如何操作 Model上, 大大提高开发效率</p><h3 id="数据绑定实例"><a href="#数据绑定实例" class="headerlink" title="数据绑定实例"></a>数据绑定实例</h3><pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">
+&lt;body&gt;
+&lt;!--老师解读
+1. div 元素不是必须的，也可以是其它元素，比如 span,但是约定都是将 vue 实例挂载到 div
+2. 因为 div 更加适合做布局
+3. id 不是必须为 app , 是程序员指定,一般我们就使用 app
+--&gt;
+&lt;div id&#x3D;&quot;app&quot;&gt;
+  &lt;!--老师解读
+  1. &#123;&#123;message&#125;&#125; : 插值表达式
+  2. message 就是从 model 的 data 数据池来设置
+  3. 当我们的代码执行时，会到 data&#123;&#125; 数据池中去匹配数据, 如果匹配上, 就进行替换
+  , 如果没有匹配上, 就是输出空
+  --&gt;
+  &lt;h1&gt;欢迎你&#123;&#123;message&#125;&#125;-&#123;&#123;name&#125;&#125;&lt;&#x2F;h1&gt;
+&lt;&#x2F;div&gt;
+&lt;!--引入 vue.js--&gt;
+&lt;script src&#x3D;&quot;vue.js&quot;&gt;&lt;&#x2F;script&gt;
+&lt;script&gt;
+  &#x2F;&#x2F;创建 Vue 对象
+  &#x2F;**
+   韩顺平 Java 工程师
+   * 老韩解读
+   * 1. 创建 Vue 对象实例
+   * 2. 我们在控制台输出 vm 对象，看看该对象的结构！(data&#x2F;listeners) *
+   *&#x2F;
+  let vm &#x3D; new Vue(&#123;
+    el: &quot;#app&quot;, &#x2F;&#x2F;创建的 vue 实例挂载到 id&#x3D;app 的 div
+    data: &#123; &#x2F;&#x2F;data&#123;&#125; 表示数据池(model 的有了数据), 有很多数据 ,以 k-v 形式设置(根据业务需要来设置)
+      message: &quot;Hello-Vue!&quot;,
+      name: &quot;秦三顺&quot;
+    &#125;
+  &#125;)
+&lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>·注意:代码顺序，要求 div 在前，script 在后，否则无法绑定数</p><h3 id="数据单向渲染"><a href="#数据单向渲染" class="headerlink" title="数据单向渲染"></a>数据单向渲染</h3><p>· v-bind 指令可以完成基本数据渲染/绑定<br>· v-bind 简写形式就是一个冒号（:）</p><pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;!--解读
+   1.适用插值表达式引用data数据池数据在标签体内
+   2.如果是在标签&#x2F;元素的属性上去引用data数据池数据时,不能适用插值表达式
+--&gt;
+&lt;img v-bind:src&#x3D;&quot;img_src&quot; v-bind:width&#x3D;&quot;img_width&quot;&gt;
+&lt;script&gt;
+let vm &#x3D; new Vue(&#123;
+  el: &quot;#app&quot;, &#x2F;&#x2F;创建的 vue 实例挂载到 id&#x3D;app 的 div
+  data: &#123; &#x2F;&#x2F;data&#123;&#125; 表示数据池(model 的有了数据), 有很多数据 ,以 k-v 形式设置(根据业务需要来设置)
+    message: &quot;hello, 耗子精&quot;,
+    img_src: &quot;1.jpg&quot;,
+    img_width: &quot;200px&quot;
+  &#125;
+&#125;)
+console.log(&quot;vm&#x3D;&gt;&quot;, vm);
+&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="数据双向绑定"><a href="#数据双向绑定" class="headerlink" title="数据双向绑定"></a>数据双向绑定</h3><p>·v-model 可以完成双向数据绑定</p><h3 id="事件绑定后"><a href="#事件绑定后" class="headerlink" title="事件绑定后"></a>事件绑定后</h3><p>·使用 v-on 进行事件处理，比如: v-on:click 表示处理鼠标点击事件<br>·v-on 指令的简写形式 @ [需要浏览器支持]</p><pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">
+&lt;body&gt;
+&lt;!--视图--&gt;
+&lt;div id&#x3D;&quot;app&quot;&gt;
+  &lt;h1&gt;&#123;&#123;message&#125;&#125;&lt;&#x2F;h1&gt;
+  &lt;!--老韩解读
+  1. v-on:click 表示我们要给 button 元素绑定一个 click 的事件
+  2. sayHi() 表示绑定的方法, 在方法池 methods&#123;&#125; 定义的
+  3. 底层仍然是 dom 处理
+  4. 如果方法不需要传递参数，可以省略()
+  5. v-on:click 可以简写@, 但是需要浏览器支持
+  --&gt;
+  &lt;button v-on:click&#x3D;&quot;sayHi()&quot;&gt;点击输出&lt;&#x2F;button&gt;
+  &lt;button v-on:click&#x3D;&quot;sayOk()&quot;&gt;点击输出&lt;&#x2F;button&gt;
+  &lt;button v-on:click&#x3D;&quot;sayHi&quot;&gt;点击输出&lt;&#x2F;button&gt;
+  &lt;button @click&#x3D;&quot;sayOk&quot;&gt;点击输出&lt;&#x2F;button&gt;
+&lt;&#x2F;div&gt;
+&lt;!--引入我们的 vue.js--&gt;
+&lt;script src&#x3D;&quot;vue.js&quot;&gt;&lt;&#x2F;script&gt;
+&lt;!--创建一个 vue 实例,并挂载到 id&#x3D;app 的 div--&gt;
+&lt;script&gt;
+  &#x2F;&#x2F;老师说明:这里创建的 Vue 实例, 你可以不去接收, 也可以接收
+  &#x2F;&#x2F;方便我们调试信息
+  let vm &#x3D; new Vue(&#123;
+    el: &quot;#app&quot;, &#x2F;&#x2F;创建的 vue 实例挂载到 id&#x3D;app 的 div, el 就是 element 的简写
+    data: &#123; &#x2F;&#x2F;data&#123;&#125; 表示数据池(model 中的数据), 有很多数据 ,以 k-v 形式设置(根据业务需要来设置)
+      message: &quot;Vue 事件处理的案例&quot;, name: &quot;韩顺平教育&quot;
+    &#125;,
+&#x2F;&#x2F;老师解读:
+&#x2F;&#x2F; 1. 是一个 methods 属性, 对应的值是对象&#123;&#125;
+&#x2F;&#x2F; 2. 在&#123;&#125; 中, 可以写很多的方法, 你可以这里理解是一个方法池
+&#x2F;&#x2F; 3. 这里需要小伙伴有 js 的基础&#x3D;&gt;java web 第 4 章
+    methods: &#123;
+      sayHi() &#123;
+        console.log(&quot;hi, 银角大王~&quot;);
+      &#125;, sayOk() &#123;
+        console.log(&quot;ok, 金角大王~&quot;);
+      &#125;
+    &#125;
+  &#125;) &lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="条件渲染-控制-v-if-v-show"><a href="#条件渲染-控制-v-if-v-show" class="headerlink" title="条件渲染/控制: v-if v-show"></a>条件渲染/控制: v-if v-show</h3><h4 id="v-if-介绍"><a href="#v-if-介绍" class="headerlink" title="v-if 介绍"></a>v-if 介绍</h4><pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">
+&lt;body&gt;
+&lt;div id&#x3D;&quot;app&quot;&gt;
+  &lt;!--这里小伙伴还可以看到 checkbox 的 checked 属性的值--&gt;
+  &lt;input type&#x3D;&quot;checkbox&quot; v-model&#x3D;&quot;sel&quot;&gt;是否同意条款[v-if 实现]
+  &lt;!-- 老师解读 v-if&#x2F;v-else 会根据 返回的值,来决定是否动态创建对应的子组件 &lt;h1&gt;
+  --&gt;
+  &lt;h1 v-if&#x3D;&quot;sel&quot;&gt;你同意条款&lt;&#x2F;h1&gt;
+  &lt;h1 v-else&gt;你不同意条款&lt;&#x2F;h1&gt;
+&lt;&#x2F;div&gt;
+&lt;script src&#x3D;&quot;vue.js&quot;&gt;&lt;&#x2F;script&gt;
+&lt;script&gt;
+  &#x2F;&#x2F;为了调试方便, 使用 vm 接收 Vue 实例
+  let vm &#x3D; new Vue(&#123;
+    el: &#39;#app&#39;, data: &#123;&#x2F;&#x2F;data 数据池
+      sel: false
+    &#125;
+  &#125;)
+&lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="v-show-介绍"><a href="#v-show-介绍" class="headerlink" title="v-show 介绍"></a>v-show 介绍</h4><pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">
+&lt;body&gt;
+&lt;div id&#x3D;&quot;app&quot;&gt;
+  &lt;!--这里小伙伴还可以看到 checkbox 的 checked 属性的值--&gt;
+  &lt;input type&#x3D;&quot;checkbox&quot; v-model&#x3D;&quot;sel&quot;&gt;是否同意条款[v-show 实现]
+  &lt;h1 v-show&#x3D;&quot;sel&quot;&gt;你同意条款&lt;&#x2F;h1&gt;
+  &lt;h1 v-show&#x3D;&quot;!sel&quot;&gt;你不同意条款&lt;&#x2F;h1&gt;
+&lt;&#x2F;div&gt;
+&lt;script src&#x3D;&quot;vue.js&quot;&gt;&lt;&#x2F;script&gt;
+&lt;script&gt;
+  &#x2F;&#x2F;为了调试方便, 使用 vm 接收 Vue 实例
+  let vm &#x3D; new Vue(&#123;
+    el: &#39;#app&#39;, data: &#123;&#x2F;&#x2F;data 数据池
+      sel: false
+    &#125;
+  &#125;)
+&lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="v-if-VS-v-show"><a href="#v-if-VS-v-show" class="headerlink" title="v-if VS v-show"></a>v-if VS v-show</h3><p>1.v-if会确保在切换过程中,条件块内的事件监听器和子组件销毁和重建<br>2.v-show机制相对简单,不管初始条件是什么,元素总会被渲染,并且只是对CSS进行切换<br>3.使用建议：如果要频繁地切换，建议使用 v-show ；如果运行时条件很少改变，使用 v-if 较好</p><h3 id="列表循环渲染-v-for"><a href="#列表循环渲染-v-for" class="headerlink" title="列表循环渲染:v-for"></a>列表循环渲染:v-for</h3><p>1.对数组进行遍历<br>·v-for指令需要适用item in items 形式的特殊语法,其中items是源数据数组,而item则是被迭代的数组元素的别名</p><pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">
+&lt;li v-for&#x3D;&quot;item in items&quot; :key&#x3D;&quot;item.message&quot;&gt;
+&#123;&#123;item.message&#125;&#125;
+&lt;&#x2F;li&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>2.用 v-for 来遍历一个对象的 property</p><pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">
+&lt;li v-for&#x3D;&quot;value in object&quot;&gt;
+&#123;&#123;value&#125;&#125;
+&lt;&#x2F;li&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h2 id="组件化编程"><a href="#组件化编程" class="headerlink" title="组件化编程"></a>组件化编程</h2><h3 id="基本说明"><a href="#基本说明" class="headerlink" title="基本说明"></a>基本说明</h3><p>1.在大型应用开发的时候,页面可以划分成很多部分,往往不同的页面,也会有相同的部分。例如可能会有相同的头部导航<br>2.但是如果每个页面都独自开发,这无疑增加了我们开发的成本,所以我们会把页面的不同部分拆分成独立的组件,然后在不同页面就可以<br>共享这些组件,避免重复开发。</p><h3 id="全局组件"><a href="#全局组件" class="headerlink" title="全局组件"></a>全局组件</h3><p>·直接Vue.component</p><pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">
+&lt;body&gt;
+&lt;div id&#x3D;&quot;app&quot;&gt;
+  &lt;h1&gt;组件化编程-全局组件&lt;&#x2F;h1&gt;
+  &lt;!--使用全局组件--&gt;
+  &lt;counter&gt;&lt;&#x2F;counter&gt;
+  &lt;br&#x2F;&gt;
+  &lt;counter&gt;&lt;&#x2F;counter&gt;
+  &lt;counter&gt;&lt;&#x2F;counter&gt;
+  &lt;counter&gt;&lt;&#x2F;counter&gt;
+  &lt;counter&gt;&lt;&#x2F;counter&gt;
+&lt;&#x2F;div&gt;
+
+&lt;div id&#x3D;&quot;app2&quot;&gt;
+  &lt;h1&gt;组件化编程-全局组件-app2&lt;&#x2F;h1&gt;
+  &lt;!--使用全局组件--&gt;
+  &lt;counter&gt;&lt;&#x2F;counter&gt;
+  &lt;counter&gt;&lt;&#x2F;counter&gt;
+&lt;&#x2F;div&gt;
+&lt;script src&#x3D;&quot;vue.js&quot;&gt;&lt;&#x2F;script&gt;
+&lt;script&gt;
+  &#x2F;&#x2F;1、定义一个全局组件, 名称为 counter
+  &#x2F;&#x2F;2. &#123;&#125; 表示就是我们的组件相关的内容
+  &#x2F;&#x2F;3. template 指定该组件的界面, 因为会引用到数据池的数据，所以需要是模板字符串
+  &#x2F;&#x2F;4. 这里说明: 要把组件视为一个Vue实例，也有自己的数据池和methods
+  &#x2F;&#x2F;5. 这里说明: 对于组件，我们的数据池的数据，是使用函数&#x2F;方法返回[目的是为了保证每个组件的数据是独立], 不能使用原来的方式
+  &#x2F;&#x2F;6. 这时我们达到目前，界面通过template实现共享,业务处理也复用
+  &#x2F;&#x2F;7. 全局组件是属于所有vue实例，因此，可以在所有的vue实例使用
+  Vue.component(&quot;counter&quot;, &#123;
+    template: &#96;&lt;button v-on:click&#x3D;&quot;click()&quot;&gt;点击次数&#x3D; &#123;&#123;count&#125;&#125; 次【全局组件化】&lt;&#x2F;button&gt;&#96;,
+    data() &#123;&#x2F;&#x2F;这里需要注意，和原来的方式不一样!!!!
+      return &#123;
+        count: 10
+      &#125;
+    &#125;,
+    methods: &#123;
+      click() &#123;
+        this.count++;
+      &#125;
+    &#125;
+  &#125;)
+  &#x2F;&#x2F;创建Vue实例，必须有
+  let vm &#x3D; new Vue(&#123;
+    el: &quot;#app&quot;&#x2F;&#x2F;Vue实例的挂载点
+  &#125;)
+
+  let vm2 &#x3D; new Vue(&#123;
+    el: &quot;#app2&quot;&#x2F;&#x2F;Vue实例的挂载点
+  &#125;)
+
+
+&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="局部组件的方式"><a href="#局部组件的方式" class="headerlink" title="局部组件的方式"></a>局部组件的方式</h3><p>·定义一个组件,然后将其放入Vue对象的components属性中</p><pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">
+&lt;body&gt;
+&lt;div id&#x3D;&quot;app&quot;&gt;
+  &lt;h1&gt;组件化编程-局部组件&lt;&#x2F;h1&gt;
+  &lt;!--使用局部组件 ,该组件是从挂载到app的vue中的--&gt;
+  &lt;my_counter&gt;&lt;&#x2F;my_counter&gt;
+  &lt;br&#x2F;&gt;
+  &lt;my_counter&gt;&lt;&#x2F;my_counter&gt;
+  &lt;br&#x2F;&gt;
+  &lt;my_counter&gt;&lt;&#x2F;my_counter&gt;
+  &lt;br&#x2F;&gt;
+&lt;&#x2F;div&gt;
+
+&lt;div id&#x3D;&quot;app2&quot;&gt;
+  &lt;h1&gt;组件化编程-局部组件-app2&lt;&#x2F;h1&gt;
+  &lt;!--使用局部组件 --&gt;
+  &lt;hsp_counter&gt;&lt;&#x2F;hsp_counter&gt;
+  &lt;br&#x2F;&gt;
+  &lt;hsp_counter&gt;&lt;&#x2F;hsp_counter&gt;
+  &lt;br&#x2F;&gt;
+&lt;&#x2F;div&gt;
+&lt;script src&#x3D;&quot;vue.js&quot;&gt;&lt;&#x2F;script&gt;
+&lt;script&gt;
+
+  &#x2F;&#x2F;定义一个组件, 组件的名称为 buttonCounter
+  &#x2F;&#x2F;老韩扩展
+  &#x2F;&#x2F;1. 可以把常用的组件，定义在某个commons.js中 export
+  &#x2F;&#x2F;2. 如果某个页面需要使用， 直接import
+  const buttonCounter &#x3D; &#123;
+    template: &#96;&lt;button v-on:click&#x3D;&quot;click()&quot;&gt;点击次数&#x3D; &#123;&#123;count&#125;&#125; 次【局部组件化】&lt;&#x2F;button&gt;&#96;,
+    data() &#123;&#x2F;&#x2F;这里需要注意，和原来的方式不一样!!!!
+      return &#123;
+        count: 10
+      &#125;
+    &#125;,
+    methods: &#123;
+      click() &#123;
+        this.count++;
+      &#125;
+    &#125;
+  &#125;
+
+  &#x2F;&#x2F;创建Vue实例，必须有
+  let vm &#x3D; new Vue(&#123;
+    el: &quot;#app&quot;,&#x2F;&#x2F;Vue实例的挂载点
+    components: &#123; &#x2F;&#x2F;引入&#x2F;注册某个组件, 此时my_counter就是一个组件, 是一个局部组件,他的使用范围在当前vue
+      &#39;my_counter&#39;: buttonCounter
+    &#125;
+  &#125;)
+
+  let vm2 &#x3D; new Vue(&#123;
+    el: &quot;#app2&quot;,&#x2F;&#x2F;Vue实例的挂载点
+    components: &#123;&#x2F;&#x2F;引入&#x2F;注册组件buttonCounter
+      &#39;hsp_counter&#39;: buttonCounter
+    &#125;
+  &#125;)
+
+&lt;&#x2F;script&gt;
+&lt;&#x2F;body&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="生命周期和监听函数-钩子函数"><a href="#生命周期和监听函数-钩子函数" class="headerlink" title="生命周期和监听函数(钩子函数)"></a>生命周期和监听函数(钩子函数)</h2><h3 id="基本说明-1"><a href="#基本说明-1" class="headerlink" title="基本说明"></a>基本说明</h3><p>1.Vue实例有一个完整的生命周期,也就是说从开始创建,初始化数据,编译模板,挂载DOM,渲染-更新-渲染,卸载等一系列过程<br>2.钩子函数(监听函数): Vue 实例在完整的生命周期过程中(比如设置数据监听、编译模板、将实例挂载到 DOM 、在数据变化时更新 DOM<br>等),<br>也会运行叫做生命周期钩子的函数。<br>3.钩子函数的 作用就是在某个阶段, 给程序员一个做某些处理的机会</p><h3 id="一图胜千言"><a href="#一图胜千言" class="headerlink" title="一图胜千言"></a>一图胜千言</h3><div class="img-wrap"><div class="img-bg"><img class="img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://qgqliving-10000.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87/7caac0ab30865c9307c95a4f81289af6.png"></div></div><p>1.new Vue()<br>new 了一个 Vue 的实例对象，此时就会进入组件的创建过程<br>2.beforeCreate<br>组件创建之后遇到的第一个生命周期函数，这个阶段 data 和 methods 以及dom结构都未被初始化，也就是获取不到 data 的值，<br>不能调用 methods 中的函<br>3.created<br>这个阶段组件的 data 和 methods 中的方法已初始化结束，可以访问，但是 dom 结构未初始化，页面未渲染<br>说明：在这个阶段，经常会发起 Ajax 请求<br>4.beforeMount<br>当模板在内存中编译完成，此时内存中的模板结构还未渲染至页面上，看不到真实的数据<br>5.mounted<br>此时，页面渲染好，用户看到的是真实的页面数据， 生命周期创建阶段完毕，进入到了运行中的阶段<br>6.beforeUpdate<br>当执行此函数，数据池的数据新的，但是页面是旧<br>7.updated<br>页面已经完成了更新，此时，data 数据和页面的数据都是新的</p><h2 id="Vue2脚手架模块化开发"><a href="#Vue2脚手架模块化开发" class="headerlink" title="Vue2脚手架模块化开发"></a>Vue2脚手架模块化开发</h2><h3 id="为什么需要-Vue-Cli-脚手架"><a href="#为什么需要-Vue-Cli-脚手架" class="headerlink" title="为什么需要 Vue Cli 脚手架"></a>为什么需要 Vue Cli 脚手架</h3><p>·开发效率低<br>·不够规范<br>·维护和升级, 可读性比较差</p><h3 id="Vue项目结果分析"><a href="#Vue项目结果分析" class="headerlink" title="Vue项目结果分析"></a>Vue项目结果分析</h3><div class="img-wrap"><div class="img-bg"><img class="img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://qgqliving-10000.oss-cn-beijing.aliyuncs.com/%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87/0b8f221e94cb4845d5760dd747e42332.png"></div></div><h2 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;script&gt;
+new Vue(&#123;
+  el: &quot;#app&quot;,
+  data: &#123;
+    msg: &quot;妖怪信息列表&quot;,
+    monsterList: [] &#x2F;&#x2F;表示妖怪的信息数组
+  &#125;,
+  methods: &#123;&#x2F;&#x2F;自定义方法
+    list() &#123;&#x2F;&#x2F;发送ajax请求,获取数据 axios
+      &#x2F;*
+          解读
+          1. axios.get() 表示发出ajax请求
+          2. http:&#x2F;&#x2F;localhost:63342&#x2F;axios&#x2F;data&#x2F;response.data.json 表示请求的url
+             要根据实际情况来填写
+          3. axios发出ajax请求的基本语法
+             axios.get(url).then(箭头函数).then(箭头函数)...catch(箭头函数)
+             (1) 如果get请求成功就进入到第一个then()
+             (2) 可以再 第一个then()中继续发出axios的ajax请求
+             (3) 如果有异常, 会进入到 catch(箭头函数)
+          4. list在生命周期函数created() 中调用-自己去回顾vue的生命周期函数
+       *&#x2F;
+      axios.get(&quot;http:&#x2F;&#x2F;localhost:63342&#x2F;axios&#x2F;data&#x2F;response.data.json&quot;)
+          .then(responseData &#x3D;&gt; &#123;
+            console.log(&quot;responseData&#x3D; &quot;, responseData)
+            &#x2F;&#x2F;使用JSON.stringify(json) 把json对象转成一个字符串,方便观察
+            console.log(&quot;responseData&#x3D; &quot;, JSON.stringify(responseData));
+            &#x2F;&#x2F; console.log(&quot;responseData.data&#x3D; &quot;, responseData.data)
+            &#x2F;&#x2F; console.log(&quot;responseData.data.data&#x3D; &quot;, responseData.data.data)
+            console.log(&quot;responseData.data.data.item&#x3D; &quot;, responseData.data.data.items)
+            &#x2F;&#x2F;将妖怪列表数组信息, 绑定到 data数据池的 monsterList
+            &#x2F;&#x2F;老师小技巧，一定要学会看返回的数据格式!!!
+            this.monsterList &#x3D; responseData.data.data.items;
+            &#x2F;&#x2F;可以再次发出ajax请求, 老师故意发出了第二次ajax请求， 回顾老师讲过的promise发出多次请求
+            &#x2F;&#x2F; return axios.get(&quot;http:&#x2F;&#x2F;localhost:63342&#x2F;axios&#x2F;data&#x2F;response.data.json&quot;)
+          &#125;)
+          &#x2F;&#x2F; .then(responseData &#x3D;&gt; &#123;
+          &#x2F;&#x2F;     console.log(&quot;第二次axios发出 ajax请求responseData&#x3D; &quot;, responseData)
+          &#x2F;&#x2F; &#125;)
+          .catch(err &#x3D;&gt; &#123;
+            console.log(&quot;异常&#x3D;&quot;, err)
+          &#125;)
+    &#125;
+  &#125;,
+  created() &#123;
+    this.list();
+  &#125;
+&#125;)
+&lt;&#x2F;script&gt;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者:</span> <span class="post-copyright-info"><a href="https://100qin10086.github.io">秦三顺</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接:</span> <span class="post-copyright-info"><a href="https://100qin10086.github.io/posts/94391273.html">https://100qin10086.github.io/posts/94391273.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明:</span> <span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://100qin10086.github.io" target="_blank">秦家大胖's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/VUE/">VUE</a></div><div class="post_share"><div class="social-share" data-image="/img/tx.jfif" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload='this.media="all"'><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/b1a728b5.html" title="javaWeb复习6"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no26.jpg" onerror='onerror=null,src="/img/404.jpg"' alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">javaWeb复习6</div></div></a></div></nav><hr><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i> <span>评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/tx.jfif" onerror='this.onerror=null,this.src="/img/friend_404.gif"' alt="avatar"></div><div class="author-info__name">秦三顺</div><div class="author-info__description">一个专注于技术的博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/100qin10086" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:3048413889@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="tencent://Message/?Uin=3048413889&amp;websiteName=www.oicqzone.com&amp;Menu=yes" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="https://blog.csdn.net/m0_63639194?type=blog" target="_blank" title="CSDN"><i class="fa fa-address-card"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">小站新增留言板,文章评论功能，可以填写您的邮箱后再评论,不好的评论会删除！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">Vue2复习and预习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#VUE%E7%9A%84MVVM"><span class="toc-number">1.1.</span> <span class="toc-text">VUE的MVVM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E8%AF%BBMVVM%E6%80%9D%E6%83%B3"><span class="toc-number">1.1.1.</span> <span class="toc-text">解读MVVM思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E5%AE%9E%E4%BE%8B"><span class="toc-number">1.1.2.</span> <span class="toc-text">数据绑定实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%8D%95%E5%90%91%E6%B8%B2%E6%9F%93"><span class="toc-number">1.1.3.</span> <span class="toc-text">数据单向渲染</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A"><span class="toc-number">1.1.4.</span> <span class="toc-text">数据双向绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E5%90%8E"><span class="toc-number">1.1.5.</span> <span class="toc-text">事件绑定后</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93-%E6%8E%A7%E5%88%B6-v-if-v-show"><span class="toc-number">1.1.6.</span> <span class="toc-text">条件渲染&#x2F;控制: v-if v-show</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#v-if-%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.6.1.</span> <span class="toc-text">v-if 介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#v-show-%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.6.2.</span> <span class="toc-text">v-show 介绍</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-if-VS-v-show"><span class="toc-number">1.1.7.</span> <span class="toc-text">v-if VS v-show</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E5%BE%AA%E7%8E%AF%E6%B8%B2%E6%9F%93-v-for"><span class="toc-number">1.1.8.</span> <span class="toc-text">列表循环渲染:v-for</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E5%8C%96%E7%BC%96%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">组件化编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%B4%E6%98%8E"><span class="toc-number">1.2.1.</span> <span class="toc-text">基本说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E7%BB%84%E4%BB%B6"><span class="toc-number">1.2.2.</span> <span class="toc-text">全局组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E7%BB%84%E4%BB%B6%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="toc-number">1.2.3.</span> <span class="toc-text">局部组件的方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8C%E7%9B%91%E5%90%AC%E5%87%BD%E6%95%B0-%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.</span> <span class="toc-text">生命周期和监听函数(钩子函数)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%B4%E6%98%8E-1"><span class="toc-number">1.3.1.</span> <span class="toc-text">基本说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E5%9B%BE%E8%83%9C%E5%8D%83%E8%A8%80"><span class="toc-number">1.3.2.</span> <span class="toc-text">一图胜千言</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue2%E8%84%9A%E6%89%8B%E6%9E%B6%E6%A8%A1%E5%9D%97%E5%8C%96%E5%BC%80%E5%8F%91"><span class="toc-number">1.4.</span> <span class="toc-text">Vue2脚手架模块化开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81-Vue-Cli-%E8%84%9A%E6%89%8B%E6%9E%B6"><span class="toc-number">1.4.1.</span> <span class="toc-text">为什么需要 Vue Cli 脚手架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90"><span class="toc-number">1.4.2.</span> <span class="toc-text">Vue项目结果分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#axios"><span class="toc-number">1.5.</span> <span class="toc-text">axios</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-number">1.5.1.</span> <span class="toc-text">语法</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/94391273.html" title="vue2复习">vue2复习</a><time datetime="2024-03-21T00:59:59.000Z" title="发表于 2024-03-21 08:59:59">2024-03-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b1a728b5.html" title="javaWeb复习6"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no26.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="javaWeb复习6"></a><div class="content"><a class="title" href="/posts/b1a728b5.html" title="javaWeb复习6">javaWeb复习6</a><time datetime="2024-03-19T03:25:47.000Z" title="发表于 2024-03-19 11:25:47">2024-03-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/28ae790f.html" title="javaWeb复习5"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no25.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="javaWeb复习5"></a><div class="content"><a class="title" href="/posts/28ae790f.html" title="javaWeb复习5">javaWeb复习5</a><time datetime="2024-03-18T08:03:17.000Z" title="发表于 2024-03-18 16:03:17">2024-03-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/5fa94999.html" title="javaWeb复习4"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no24.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="javaWeb复习4"></a><div class="content"><a class="title" href="/posts/5fa94999.html" title="javaWeb复习4">javaWeb复习4</a><time datetime="2024-03-14T08:12:17.000Z" title="发表于 2024-03-14 16:12:17">2024-03-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/c1cddc3a.html" title="javaWeb复习3"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no23.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="javaWeb复习3"></a><div class="content"><a class="title" href="/posts/c1cddc3a.html" title="javaWeb复习3">javaWeb复习3</a><time datetime="2024-03-13T08:09:58.000Z" title="发表于 2024-03-13 16:09:58">2024-03-13</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By 秦三顺</div><div class="framework-info"><span>框架</span> <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题</span> <a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://qgq.kuhehe.top/',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: false,
+    }, null))
+  }
+
+  const walineCSSLoad = document.getElementById('waline-css')
+
+  if (typeof Waline === 'object') {
+    walineCSSLoad ? initWaline() : getCSS('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css','waline-css').then(initWaline)
+  }
+  else {
+    getCSS('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css','waline-css').then(() => {
+      getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(initWaline)
+    })
+  }
+}
+
+if ('Waline' === 'Waline' || !true) {
+  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script defer src="/js/cursor.js"></script><div class="aplayer no-destory" data-id="1708664797" data-server="tencent" data-type="playlist" data-order="list" data-fixed="true" data-preload="auto" data-autoplay="false" data-mutex="true"></div><script async src="//npm.elemecdn.com/pace-js@1.2.4/pace.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful=!0,POWERMODE.shake=!0,POWERMODE.mobile=!1,document.body.addEventListener("input",POWERMODE)</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload='this.media="all"'><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><div class="app-refresh" id="app-refresh" style="position:fixed;top:-2.2rem;left:0;right:0;z-index:99999;padding:0 1rem;font-size:15px;height:2.2rem;transition:all .3s ease"><div class="app-refresh-wrap" style="display:flex;color:#fff;height:100%;align-items:center;justify-content:center"><label>✨ 有新文章啦！ 👉</label><a href="javascript:void(0)" onclick="location.reload()"><span style="color:#fff;text-decoration:underline;cursor:pointer">🍗点击食用🍔</span></a></div></div><script>if ('serviceWorker' in navigator) {
+    if (navigator.serviceWorker.controller) {
+        navigator.serviceWorker.addEventListener('controllerchange', function() {
+            showNotification()
+        })
+    }
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js')
+    })
+}
+function showNotification() {
+    if (GLOBAL_CONFIG.Snackbar) {
+        var snackbarBg =
+            document.documentElement.getAttribute('data-theme') === 'light' ?
+                GLOBAL_CONFIG.Snackbar.bgLight :
+                GLOBAL_CONFIG.Snackbar.bgDark
+        var snackbarPos = GLOBAL_CONFIG.Snackbar.position
+        Snackbar.show({
+            text: '✨ 有新文章啦！ 👉',
+            backgroundColor: snackbarBg,
+            duration: 500000,
+            pos: snackbarPos,
+            actionText: '🍗点击食用🍔',
+            actionTextColor: '#fff',
+            onActionClick: function(e) {
+                location.reload()
+            },
+        })
+    } else {
+        var showBg =
+            document.documentElement.getAttribute('data-theme') === 'light' ?
+                '#3b70fc' :
+                '#1f1f1f'
+        var cssText = `top: 0; background: ${showBg};`
+        document.getElementById('app-refresh').style.cssText = cssText
+    }
+}</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i> <span>数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div><script data-pjax>function butterfly_footer_beautify_injector_config(){var A=document.getElementById("footer-wrap");console.log("已挂载butterfly_footer_beautify"),A.insertAdjacentHTML("beforeend",'<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v5.4.0" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v4.2.2" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.jsdelivr.com/" style="margin-inline:5px" data-title="本站使用JsDelivr为静态资源提供CDN加速" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" alt=""/></a><a class="github-badge" target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index" style="margin-inline:5px" data-title="本站已在甘进行备案" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/甘ICP备-2022004213号-e1d492?style=flat&amp;logo=data:image/png;base64,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" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>')}for(var elist="null".split(","),cpage=location.pathname,epage="all",flag=0,i=0;i<elist.length;i++)cpage.includes(elist[i])&&flag++;"all"===epage&&0==flag?butterfly_footer_beautify_injector_config():epage===cpage&&butterfly_footer_beautify_injector_config()</script><script async src="/js/runtime/runtime.min.js"></script><script async src="/js/ali_font.js"></script><div class="js-pjax"><script async>for(var arr=document.getElementsByClassName("recent-post-item"),i=0;i<arr.length;i++)arr[i].classList.add("wow"),arr[i].classList.add("animate__zoomIn"),arr[i].setAttribute("data-wow-duration","1.5s"),arr[i].setAttribute("data-wow-delay","200ms"),arr[i].setAttribute("data-wow-offset","30"),arr[i].setAttribute("data-wow-iteration","1")</script><script async>for(var arr=document.getElementsByClassName("card-widget"),i=0;i<arr.length;i++)arr[i].classList.add("wow"),arr[i].classList.add("animate__zoomIn"),arr[i].setAttribute("data-wow-duration",""),arr[i].setAttribute("data-wow-delay","200ms"),arr[i].setAttribute("data-wow-offset",""),arr[i].setAttribute("data-wow-iteration","")</script><script async>for(var arr=document.getElementsByClassName("flink-list-card"),i=0;i<arr.length;i++)arr[i].classList.add("wow"),arr[i].classList.add("animate__flipInY"),arr[i].setAttribute("data-wow-duration","3s"),arr[i].setAttribute("data-wow-delay",""),arr[i].setAttribute("data-wow-offset",""),arr[i].setAttribute("data-wow-iteration","")</script><script async>for(var arr=document.getElementsByClassName("flink-list-card"),i=0;i<arr.length;i++)arr[i].classList.add("wow"),arr[i].classList.add("animate__animated"),arr[i].setAttribute("data-wow-duration","3s"),arr[i].setAttribute("data-wow-delay",""),arr[i].setAttribute("data-wow-offset",""),arr[i].setAttribute("data-wow-iteration","")</script><script async>for(var arr=document.getElementsByClassName("article-sort-item"),i=0;i<arr.length;i++)arr[i].classList.add("wow"),arr[i].classList.add("animate__slideInRight"),arr[i].setAttribute("data-wow-duration","1.5s"),arr[i].setAttribute("data-wow-delay",""),arr[i].setAttribute("data-wow-offset",""),arr[i].setAttribute("data-wow-iteration","")</script><script async>for(var arr=document.getElementsByClassName("site-card"),i=0;i<arr.length;i++)arr[i].classList.add("wow"),arr[i].classList.add("animate__flipInY"),arr[i].setAttribute("data-wow-duration","3s"),arr[i].setAttribute("data-wow-delay",""),arr[i].setAttribute("data-wow-offset",""),arr[i].setAttribute("data-wow-iteration","")</script><script async>for(var arr=document.getElementsByClassName("site-card"),i=0;i<arr.length;i++)arr[i].classList.add("wow"),arr[i].classList.add("animate__animated"),arr[i].setAttribute("data-wow-duration","3s"),arr[i].setAttribute("data-wow-delay",""),arr[i].setAttribute("data-wow-offset",""),arr[i].setAttribute("data-wow-iteration","")</script></div><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow_init.js"></script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginModelPath:"assets/",model:{jsonPath:"/live2dw/assets/shizuku.model.json"},display:{position:"left",width:300,height:600},mobile:{show:!1},rect:"opacity:0.7",log:!1,pluginJsPath:"lib/",pluginRootPath:"live2dw/",tagMode:!1})</script></body></html>
