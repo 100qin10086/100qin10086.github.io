@@ -1,0 +1,502 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><title>Elasticsearch | 秦家大胖's Blog</title><meta name="author" content="秦三顺"><meta name="copyright" content="秦三顺"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Elasticsearch学习  基本概念  1.index(索引)相当于MySQL中的Database2.Type(类型)在index(索引)中,可以定义一个或多个类型,类似于MySQL中的Table,每一种类型的数据放在一起3.Document(文档)4.为什么ES搜索快?倒排索引 初步索引  1._catGET &#x2F;_cat&#x2F;nodes：查看所有节点2.索引一个文档(保存)"><meta property="og:type" content="article"><meta property="og:title" content="Elasticsearch"><meta property="og:url" content="https://100qin10086.github.io/posts/d32d37e5.html"><meta property="og:site_name" content="秦家大胖&#39;s Blog"><meta property="og:description" content="Elasticsearch学习  基本概念  1.index(索引)相当于MySQL中的Database2.Type(类型)在index(索引)中,可以定义一个或多个类型,类似于MySQL中的Table,每一种类型的数据放在一起3.Document(文档)4.为什么ES搜索快?倒排索引 初步索引  1._catGET &#x2F;_cat&#x2F;nodes：查看所有节点2.索引一个文档(保存)"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://100qin10086.github.io/img/bj/no37.jpg"><meta property="article:published_time" content="2025-01-11T11:39:48.000Z"><meta property="article:modified_time" content="2025-01-11T14:24:34.486Z"><meta property="article:author" content="秦三顺"><meta property="article:tag" content="分布式中间件"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://100qin10086.github.io/img/bj/no37.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://100qin10086.github.io/posts/d32d37e5.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="manifest" href="/manifest.json"><meta name="msapplication-TileColor" content="#3b70fc"><link rel="apple-touch-icon" sizes="180x180" href="/img/siteicon/128.png"><link rel="icon" type="image/png" sizes="32x32" href="/img/siteicon/32.png"><link rel="icon" type="image/png" sizes="16x16" href="/img/siteicon/16.png"><link rel="mask-icon" href="/img/siteicon/128.png" color="#5bbad5"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload='this.media="all"'><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload='this.media="all"'><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE={title:"Elasticsearch",isPost:!0,isHome:!1,isHighlightShrink:!1,isToc:!0,postUpdate:"2025-01-11 22:24:34"}</script><noscript><style>#nav{opacity:1}.justified-gallery img{opacity:1}#post-meta time,#recent-posts time{display:inline!important}</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload='this.media="all"'><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/progress_bar.css" media="defer" onload='this.media="all"'><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-blog@2.0.4/css/runtime/runtime.min.css" media="print" onload='this.media="all"'><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload='this.media="all"'><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload='this.media="all"'><script src="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload='this.media="screen"'><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="秦家大胖's Blog" type="application/atom+xml"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/tx.jfif" onerror='onerror=null,src="/img/friend_404.gif"' alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">42</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i> <span>Home</span></a></div><div class="menus_item"><a class="site-page" href="/bangumis/index.html"><i class="fa-fw fas fa-home"></i> <span>追番</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i> <span>留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image:url(/img/bj/no37.jpg)"><nav id="nav"><span id="blog-info"><a href="/" title="秦家大胖's Blog"><span class="site-name">秦家大胖's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i> <span>搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i> <span>Home</span></a></div><div class="menus_item"><a class="site-page" href="/bangumis/index.html"><i class="fa-fw fas fa-home"></i> <span>追番</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i> <span>留言板</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Elasticsearch</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-01-11T11:39:48.000Z" title="发表于 2025-01-11 19:39:48">2025-01-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-11T14:24:34.486Z" title="更新于 2025-01-11 22:24:34">2025-01-11</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" data-flag-title="Elasticsearch"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1><a href="#" class="headerlink"></a><div class="note purple no-icon flat"><p>Elasticsearch学习</p></div></h1><h2 id="-1"><a href="#-1" class="headerlink"></a><div class="note purple no-icon flat"><p>基本概念</p></div></h2><p>1.index(索引)<br>相当于MySQL中的Database<br>2.Type(类型)<br>在index(索引)中,可以定义一个或多个类型,类似于MySQL中的Table,每一种类型的数据放在一起<br>3.Document(文档)<br>4.为什么ES搜索快?倒排索引</p><h2 id="-2"><a href="#-2" class="headerlink"></a><div class="note purple no-icon flat"><p>初步索引</p></div></h2><p>1._cat<br><pre class="line-numbers language-none"><code class="language-none">GET &#x2F;_cat&#x2F;nodes：查看所有节点<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br>2.索引一个文档(保存)<br>保存一个数据，保存在哪个索引的哪个类型下，指定用哪个唯一标识PUT customer/external/1；在 customer 索引下的 external 类型下保存 1 号数据为<br><pre class="line-numbers language-none"><code class="language-none"># # 在customer索引下的external类型下保存1号数据
+PUT customer&#x2F;external&#x2F;1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><br>返回数据<br><pre class="line-numbers language-none"><code class="language-none">返回数据：
+带有下划线开头的，称为元数据，反映了当前的基本信息。
+&#123;
+  &quot;_index&quot;: &quot;customer&quot;, 表明该数据在哪个数据库下；
+    &quot;_type&quot;: &quot;external&quot;, 表明该数据在哪个类型下；
+    &quot;_id&quot;: &quot;1&quot;,  表明被保存数据的id；
+    &quot;_version&quot;: 1,  被保存数据的版本
+    &quot;result&quot;: &quot;created&quot;, 这里是创建了一条数据，如果重新put一条数据，则该状态会变为updated，并且版本号也会发生变化。
+  &quot;_shards&quot;: &#123;
+    &quot;total&quot;: 2,
+    &quot;successful&quot;: 1,
+    &quot;failed&quot;: 0
+  &#125;,
+  &quot;_seq_no&quot;: 1,
+  &quot;_primary_term&quot;: 1
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br>PUT和POST都可以,POST新增,如果不指定id,会自动生成id,指定 id 就会修改这个数据，并新增版本号 PUT 可以新增可以修改。PUT 必须指定 id；由于 PUT 需要指定 id，我们一般都用来做修改操作，不指定 id 会报错。<br>3.查询文档<br><pre class="line-numbers language-none"><code class="language-none">GET customer&#x2F;external&#x2F;1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br>返回数据<br><pre class="line-numbers language-none"><code class="language-none">&#123;
+  &quot;_index&quot;: &quot;customer&quot;,
+  &quot;_type&quot;: &quot;external&quot;,
+  &quot;_id&quot;: &quot;1&quot;,
+  &quot;_version&quot;: 2,
+  &quot;_seq_no&quot;: 1, &#x2F;&#x2F;并发控制字段，每次更新都会+1，用来做乐观锁
+  &quot;_primary_term&quot;: 1,&#x2F;&#x2F;同上，主分片重新分配，如重启，就会变化
+  &quot;found&quot;: true,
+  &quot;_source&quot;: &#123; &#x2F;&#x2F;存储的信息
+    &quot;name&quot;: &quot;John Doe&quot;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br>乐观锁用法,通过”if_seq_no=1&amp;if_primary_term=1”,当序列号匹配的时候,才进行修改,否则不修改<br><pre class="line-numbers language-none"><code class="language-none">PUT http:&#x2F;&#x2F;59.110.106.16:9200&#x2F;customer&#x2F;external&#x2F;1?if_seq_no&#x3D;1&amp;if_primary_term&#x3D;1
+Content-Type: application&#x2F;json
+
+&#123;
+  &quot;name&quot;: &quot;John Doe&quot;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br>4.更新文档<br><pre class="line-numbers language-none"><code class="language-none">POST customer&#x2F;external&#x2F;1&#x2F;_update
+&#123;
+   &quot;doc&quot;:&#123;
+       &quot;name&quot;: &quot;John Doew&quot;
+   &#125;
+&#125;
+或者
+POST customer&#x2F;external&#x2F;1
+&#123;
+
+   &quot;name&quot;: &quot;John Doe2&quot;
+&#125;
+或者
+PUT customer&#x2F;external&#x2F;1
+&#123;
+   &quot;name&quot;: &quot;John Doe&quot;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br>5.删除文档&amp;索引<br><pre class="line-numbers language-none"><code class="language-none">DELETE customer&#x2F;external&#x2F;1
+DELETE customer<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><br>6.ES的批量操作-bulk<br>用Kibana之中的DEV Tools<br><pre class="line-numbers language-none"><code class="language-none">POST customer&#x2F;external&#x2F;_bulk
+
+&#123;&quot;index&quot;:&#123;&quot;_id&quot;:&quot;1&quot;&#125;&#125;
+&#123;&quot;name&quot;: &quot;John Doe&quot; &#125;
+
+&#123;&quot;index&quot;:&#123;&quot;_id&quot;:&quot;2&quot;&#125;&#125;
+&#123;&quot;name&quot;: &quot;Jane Doe&quot; &#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br>返回数据<br><pre class="line-numbers language-none"><code class="language-none">#! Deprecation: [types removal] Specifying types in bulk requests is deprecated.
+&#123;
+  &quot;took&quot; : 318,  花费了多少ms
+  &quot;errors&quot; : false, 没有发生任何错误
+  &quot;items&quot; : [ 每个数据的结果
+    &#123;
+      &quot;index&quot; : &#123; 保存
+        &quot;_index&quot; : &quot;customer&quot;, 索引
+        &quot;_type&quot; : &quot;external&quot;, 类型
+        &quot;_id&quot; : &quot;1&quot;, 文档
+        &quot;_version&quot; : 1, 版本
+        &quot;result&quot; : &quot;created&quot;, 创建
+        &quot;_shards&quot; : &#123;
+          &quot;total&quot; : 2,
+          &quot;successful&quot; : 1,
+          &quot;failed&quot; : 0
+        &#125;,
+        &quot;_seq_no&quot; : 0,
+        &quot;_primary_term&quot; : 1,
+        &quot;status&quot; : 201 新建完成
+      &#125;
+    &#125;,
+    &#123;
+      &quot;index&quot; : &#123; 第二条记录
+        &quot;_index&quot; : &quot;customer&quot;,
+        &quot;_type&quot; : &quot;external&quot;,
+        &quot;_id&quot; : &quot;2&quot;,
+        &quot;_version&quot; : 1,
+        &quot;result&quot; : &quot;created&quot;,
+        &quot;_shards&quot; : &#123;
+          &quot;total&quot; : 2,
+          &quot;successful&quot; : 1,
+          &quot;failed&quot; : 0
+        &#125;,
+        &quot;_seq_no&quot; : 1,
+        &quot;_primary_term&quot; : 1,
+        &quot;status&quot; : 201
+      &#125;
+    &#125;
+  ]
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p><h2 id="-3"><a href="#-3" class="headerlink"></a><div class="note purple no-icon flat"><p>进阶检索</p></div></h2><p>1.SearchAPI<br>ES支持两种基本方式检索<br>·一个是通过使用 REST request URI 发送搜索参数（uri+检索参数）<br>·另一个是通过使用 REST request body 来发送它们（uri+请求体）<br><pre class="line-numbers language-none"><code class="language-none">GET bank&#x2F;_search     													检索 bank 下所有信息，包括 type 和 docs
+
+GET bank&#x2F;_search?q&#x3D;*&amp;sort&#x3D;account_number:asc							请求参数方式检索
+说明：
+q&#x3D;* # 查询所有
+sort # 排序字段
+asc #升序
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br>uri+请求体行检索<br><pre class="line-numbers language-none"><code class="language-none">GET &#x2F;bank&#x2F;_search
+&#123;
+  &quot;query&quot;: &#123; &quot;match_all&quot;: &#123;&#125; &#125;,
+  &quot;sort&quot;: [
+    &#123; &quot;account_number&quot;: &quot;asc&quot; &#125;,
+    &#123; &quot;balance&quot;:&quot;desc&quot;&#125;
+  ]
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br><pre class="line-numbers language-none"><code class="language-none">
+示例  使用时不要加#注释内容
+GET bank&#x2F;_search
+&#123;
+  &quot;query&quot;: &#123;  #  查询的字段
+    &quot;match_all&quot;: &#123;&#125;
+  &#125;,
+  &quot;from&quot;: 0,  # 从第几条文档开始查
+  &quot;size&quot;: 5,  # 查几条文档
+  &quot;_source&quot;:[&quot;balance&quot;], # 返回的数据字段， 这里只查balance
+  &quot;sort&quot;: [
+    &#123;
+      &quot;account_number&quot;: &#123;  # 返回结果按哪个列排序
+        &quot;order&quot;: &quot;desc&quot;  # 降序
+      &#125;
+    &#125;
+  ]
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br>2.query/match 匹配查询<br>如果是非字符串,会进行精确匹配,如果是字符串,会进行全文检索<br>·基本类型（非字符串），精确控制: 查询account_number == 20的文档<br><pre class="line-numbers language-none"><code class="language-none">GET bank&#x2F;_search
+&#123;
+  &quot;query&quot;: &#123;
+    &quot;match&quot;: &#123;
+      &quot;account_number&quot;: &quot;20&quot;
+    &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br>·字符串，全文检索: 查询address中含有kings的文档<br><pre class="line-numbers language-none"><code class="language-none">GET bank&#x2F;_search
+&#123;
+  &quot;query&quot;: &#123;
+    &quot;match&quot;: &#123;
+      &quot;address&quot;: &quot;kings&quot;
+    &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br>·字符串，全文检索：最终查询出 address 中包含 mill 或者 road 或者 mill road 的所有记录，并给出相关性得分<br><pre class="line-numbers language-none"><code class="language-none">GET bank&#x2F;_search
+&#123;
+   &quot;query&quot;: &#123;
+      &quot;match&quot;: &#123;
+         &quot;address&quot;: &quot;mill road&quot;
+      &#125;
+   &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br>3.query/match_phrase【短语匹配】<br>将需要匹配的值当成一整个单词（不分词）进行检索<br>·match：拆分字符串进行检索。 包含mill 或 road 或 mill road<br>·match_phrase：不拆分字符串进行检索。 包含mill road<br>·字段.keyword：必须全匹配上才检索成功。<br><pre class="line-numbers language-none"><code class="language-none">GET bank&#x2F;_search
+&#123;
+  &quot;query&quot;: &#123;
+    &quot;match_phrase&quot;: &#123;
+      &quot;address&quot;: &quot;mill road&quot;   #  就是说不要匹配只有mill或只有road的，要匹配mill road一整个子串
+      
+      # &quot;address.keyword&quot;: &quot;990 Mill&quot;  # 字段后面加上 .keyword, 必须完全匹配
+      
+    &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br>4.query/multi_math【多字段匹配】<br>state或者address中包含mill，并且在查询过程中，会对于查询条件进行分词。<br><pre class="line-numbers language-none"><code class="language-none">GET bank&#x2F;_search
+&#123;
+  &quot;query&quot;: &#123;
+    &quot;multi_match&quot;: &#123;  # 前面的match仅指定了一个字段。
+      &quot;query&quot;: &quot;mill&quot;,
+      &quot;fields&quot;: [ # state和address有mill子串  不要求都有
+        &quot;state&quot;,
+        &quot;address&quot;
+      ]
+    &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br>5.query/bool/must复合查询<br>复合语句可以合并，任何其他查询语句，包括符合语句。这也就意味着，复合语句之间可以互相嵌套，可以表达非常复杂的逻辑。</p><p>·must：必须达到must所列举的所有条件<br>·must_not：必须不匹配must_not所列举的所有条件。<br>·should：应该满足should所列举的条件。满足条件最好，不满足也可以，满足得分更高<br><pre class="line-numbers language-none"><code class="language-none">GET bank&#x2F;_search
+&#123;
+  &quot;query&quot;: &#123;
+    &quot;bool&quot;: &#123;
+      &quot;must&quot;: [   # gender必须是M， address必须包含mill
+        &#123;
+          &quot;match&quot;: &#123;
+            &quot;gender&quot;: &quot;M&quot;
+          &#125;
+        &#125;,
+        &#123;
+          &quot;match&quot;: &#123;
+            &quot;address&quot;: &quot;mill&quot;
+          &#125;
+        &#125;
+      ],
+      &quot;must_not&quot;: [   # age必须不等于18
+        &#123;
+          &quot;match&quot;: &#123;
+            &quot;age&quot;: &quot;18&quot;
+          &#125;
+        &#125;
+      ],
+      &quot;should&quot;: [    # lastname最好包含wallace
+        &#123;
+          &quot;match&quot;: &#123;
+            &quot;lastname&quot;: &quot;Wallace&quot;
+          &#125;
+        &#125;
+      ]
+    &#125;
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br>6.query/filter【结果过滤】<br>·上面的must和should影响相关性得分，而must_not仅仅是一个filter ，不贡献得分<br>·must改为filter就使must不贡献得分<br>·如果只有filter条件的话，我们会发现得分都是0<br><pre class="line-numbers language-none"><code class="language-none">GET bank&#x2F;_search
+&#123;
+  &quot;query&quot;: &#123;
+    &quot;bool&quot;: &#123;
+      &quot;must&quot;: [
+        &#123; &quot;match&quot;: &#123;&quot;address&quot;: &quot;mill&quot; &#125; &#125;
+      ],
+      &quot;filter&quot;: &#123;  # query.bool.filter
+        &quot;range&quot;: &#123;
+          &quot;balance&quot;: &#123;  # 哪个字段
+            &quot;gte&quot;: &quot;10000&quot;,
+            &quot;lte&quot;: &quot;20000&quot;
+          &#125;
+        &#125;
+      &#125;
+    &#125;
+  &#125;
+&#125;
+
+这里先是查询所有匹配address包含mill的文档，然后再根据10000&lt;&#x3D;balance&lt;&#x3D;20000进行过滤查询结果<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br>7.aggregations<br>聚合提供了从数据中分组和提取数据的能力。最简单的聚合方法大致等于 SQL GROUP BY 和 SQL 聚合函数。在 Elasticsearch 中，有执行搜索返回 hits（命中结果），并且同时返回聚合结果，把一个响应中的所有 hits（命中结果）分隔开的能力。这是非常强大且有效的，您可以执行查询和多个聚合，并且在一次使用中得到各自的（任何一个的）返回结果，使用一次简洁和简化的 API 来避免网络往返。<br>例：搜索 address 中包含 mill 的所有人的年龄分布以及平均年龄，但不显示这些人的详情。<br><pre class="line-numbers language-none"><code class="language-none">GET bank&#x2F;_search
+&#123;
+  &quot;query&quot;: &#123; # 查询出包含mill的
+    &quot;match&quot;: &#123;
+      &quot;address&quot;: &quot;Mill&quot;
+    &#125;
+  &#125;,
+  &quot;aggs&quot;: &#123; #基于查询聚合
+    &quot;ageAgg&quot;: &#123;  # 聚合的名字，随便起
+      &quot;terms&quot;: &#123; # 看值的可能性分布
+        &quot;field&quot;: &quot;age&quot;,
+        &quot;size&quot;: 10
+      &#125;
+    &#125;,
+    &quot;ageAvg&quot;: &#123; 
+      &quot;avg&quot;: &#123; # 看age值的平均
+        &quot;field&quot;: &quot;age&quot;
+      &#125;
+    &#125;,
+    &quot;balanceAvg&quot;: &#123;
+      &quot;avg&quot;: &#123; # 看balance的平均
+        &quot;field&quot;: &quot;balance&quot;
+      &#125;
+    &#125;
+  &#125;,
+  &quot;size&quot;: 0  # 不看详情
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p><h2 id="-4"><a href="#-4" class="headerlink"></a><div class="note purple no-icon flat"><p>分词</p></div></h2><pre class="line-numbers language-none"><code class="language-none">POST _analyze
+&#123;
+  &quot;analyzer&quot;: &quot;standard&quot;,
+  &quot;text&quot;: &quot;Quick brown fox!&quot;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>安装ik分词器</p><h2 id="-5"><a href="#-5" class="headerlink"></a><div class="note purple no-icon flat"><p>整合SpringBoot</p></div></h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">indexData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">IndexRequest</span> indexRequest <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IndexRequest</span><span class="token punctuation">(</span><span class="token string">"users"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//新建users索引的请求</span>
+    indexRequest<span class="token punctuation">.</span><span class="token function">id</span><span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//数据的id</span>
+
+    <span class="token class-name">User</span> user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//要保存的数据</span>
+    user<span class="token punctuation">.</span><span class="token function">setUsername</span><span class="token punctuation">(</span><span class="token string">"张三"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    user<span class="token punctuation">.</span><span class="token function">setAge</span><span class="token punctuation">(</span><span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    user<span class="token punctuation">.</span><span class="token function">setGender</span><span class="token punctuation">(</span><span class="token string">"男"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//把对象转化成json，填入请求之中</span>
+    <span class="token class-name">String</span> jsonString <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">toJSONString</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    indexRequest<span class="token punctuation">.</span><span class="token function">source</span><span class="token punctuation">(</span>jsonString<span class="token punctuation">,</span> <span class="token class-name">XContentType</span><span class="token punctuation">.</span><span class="token constant">JSON</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//执行保存操作</span>
+    <span class="token class-name">IndexResponse</span> index <span class="token operator">=</span> client<span class="token punctuation">.</span><span class="token function">index</span><span class="token punctuation">(</span>indexRequest<span class="token punctuation">,</span> <span class="token class-name">GulimallElasticSearchConfig</span><span class="token punctuation">.</span><span class="token constant">COMMON_OPTIONS</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//提取有用的相应数据</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token annotation punctuation">@Data</span>
+<span class="token keyword">class</span> <span class="token class-name">User</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> username<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> gender<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> age<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><pre class="line-numbers language-none"><code class="language-none">@Override
+    public boolean productStatusUp(List&lt;SkuEsModel&gt; skuEsModels) throws IOException &#123;
+        &#x2F;&#x2F;保存到es中
+        &#x2F;&#x2F;1、给es中建立索引。product， 建立好映射关系
+        &#x2F;&#x2F;2、给es中保存这些数据 bulk 批量保存
+        BulkRequest bulkRequest &#x3D; new BulkRequest();
+        for (SkuEsModel skuEsModel : skuEsModels) &#123;
+            &#x2F;&#x2F;构建一个一个的保存请求
+            IndexRequest indexRequest &#x3D; new IndexRequest(EsConstant.PRODUCT_INDEX);
+            &#x2F;&#x2F;指定每个商品的id
+            indexRequest.id(skuEsModel.getSkuId().toString());
+            &#x2F;&#x2F;每个商品的内容,Json
+            String s &#x3D; JSON.toJSONString(skuEsModel);
+            indexRequest.source(s, XContentType.JSON);
+            &#x2F;&#x2F;把每一个保存请求都放在bulk请求中
+            bulkRequest.add(indexRequest);
+        &#125;
+        BulkResponse bulk &#x3D; restHighLevelClient.bulk(bulkRequest, GulimallElasticSearchConfig.COMMON_OPTIONS);
+        &#x2F;&#x2F;TODO 如果批量错误
+        boolean b &#x3D; bulk.hasFailures();
+        List&lt;String&gt; collect &#x3D; Arrays.stream(bulk.getItems()).map(item -&gt; &#123;
+            return item.getId();
+        &#125;).collect(Collectors.toList());
+        log.error(&quot;商品上架成功:&#123;&#125;&quot;, collect);
+
+        return b;
+
+    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者:</span> <span class="post-copyright-info"><a href="https://100qin10086.github.io">秦三顺</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接:</span> <span class="post-copyright-info"><a href="https://100qin10086.github.io/posts/d32d37e5.html">https://100qin10086.github.io/posts/d32d37e5.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明:</span> <span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://100qin10086.github.io" target="_blank">秦家大胖's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%AD%E9%97%B4%E4%BB%B6/">分布式中间件</a></div><div class="post_share"><div class="social-share" data-image="/img/bj/no37.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload='this.media="all"'><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/664b7e30.html" title="mysql总结"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no9.jpg" onerror='onerror=null,src="/img/404.jpg"' alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">mysql总结</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/16908cff.html" title="rebbitmq"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no17.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-17</div><div class="title">rebbitmq</div></div></a></div></div></div><hr><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i> <span>评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/tx.jfif" onerror='this.onerror=null,this.src="/img/friend_404.gif"' alt="avatar"></div><div class="author-info__name">秦三顺</div><div class="author-info__description">一个专注于技术的博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">42</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/100qin10086" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:3048413889@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="tencent://Message/?Uin=3048413889&amp;websiteName=www.oicqzone.com&amp;Menu=yes" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="https://blog.csdn.net/m0_63639194?type=blog" target="_blank" title="CSDN"><i class="fa fa-address-card"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">小站新增留言板,文章评论功能，可以填写您的邮箱后再评论,不好的评论会删除！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">Elasticsearch学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#-1"><span class="toc-number">1.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-2"><span class="toc-number">1.2.</span> <span class="toc-text">初步索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-3"><span class="toc-number">1.3.</span> <span class="toc-text">进阶检索</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-4"><span class="toc-number">1.4.</span> <span class="toc-text">分词</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-5"><span class="toc-number">1.5.</span> <span class="toc-text">整合SpringBoot</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/d32d37e5.html" title="Elasticsearch"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no37.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="Elasticsearch"></a><div class="content"><a class="title" href="/posts/d32d37e5.html" title="Elasticsearch">Elasticsearch</a><time datetime="2025-01-11T11:39:48.000Z" title="发表于 2025-01-11 19:39:48">2025-01-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/664b7e30.html" title="mysql总结"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no9.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="mysql总结"></a><div class="content"><a class="title" href="/posts/664b7e30.html" title="mysql总结">mysql总结</a><time datetime="2024-11-26T06:25:05.000Z" title="发表于 2024-11-26 14:25:05">2024-11-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/628701a0.html" title="jvm基本总结"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no13.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="jvm基本总结"></a><div class="content"><a class="title" href="/posts/628701a0.html" title="jvm基本总结">jvm基本总结</a><time datetime="2024-11-25T06:44:23.000Z" title="发表于 2024-11-25 14:44:23">2024-11-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/16908cff.html" title="rebbitmq"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no17.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="rebbitmq"></a><div class="content"><a class="title" href="/posts/16908cff.html" title="rebbitmq">rebbitmq</a><time datetime="2024-11-17T04:24:58.000Z" title="发表于 2024-11-17 12:24:58">2024-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/bae4ff13.html" title="Redis"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bj/no36.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="Redis"></a><div class="content"><a class="title" href="/posts/bae4ff13.html" title="Redis">Redis</a><time datetime="2024-06-05T06:43:49.000Z" title="发表于 2024-06-05 14:43:49">2024-06-05</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2025 By 秦三顺</div><div class="framework-info"><span>框架</span> <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题</span> <a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://qgq.kuhehe.top/',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: false,
+    }, null))
+  }
+
+  const walineCSSLoad = document.getElementById('waline-css')
+
+  if (typeof Waline === 'object') {
+    walineCSSLoad ? initWaline() : getCSS('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css','waline-css').then(initWaline)
+  }
+  else {
+    getCSS('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css','waline-css').then(() => {
+      getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(initWaline)
+    })
+  }
+}
+
+if ('Waline' === 'Waline' || !true) {
+  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script defer src="/js/cursor.js"></script><div class="aplayer no-destory" data-id="1708664797" data-server="tencent" data-type="playlist" data-order="list" data-fixed="true" data-preload="auto" data-autoplay="false" data-mutex="true"></div><script async src="//npm.elemecdn.com/pace-js@1.2.4/pace.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful=!0,POWERMODE.shake=!0,POWERMODE.mobile=!1,document.body.addEventListener("input",POWERMODE)</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload='this.media="all"'><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><div class="app-refresh" id="app-refresh" style="position:fixed;top:-2.2rem;left:0;right:0;z-index:99999;padding:0 1rem;font-size:15px;height:2.2rem;transition:all .3s ease"><div class="app-refresh-wrap" style="display:flex;color:#fff;height:100%;align-items:center;justify-content:center"><label>✨ 有新文章啦！ 👉</label><a href="javascript:void(0)" onclick="location.reload()"><span style="color:#fff;text-decoration:underline;cursor:pointer">🍗点击食用🍔</span></a></div></div><script>if ('serviceWorker' in navigator) {
+    if (navigator.serviceWorker.controller) {
+        navigator.serviceWorker.addEventListener('controllerchange', function() {
+            showNotification()
+        })
+    }
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js')
+    })
+}
+function showNotification() {
+    if (GLOBAL_CONFIG.Snackbar) {
+        var snackbarBg =
+            document.documentElement.getAttribute('data-theme') === 'light' ?
+                GLOBAL_CONFIG.Snackbar.bgLight :
+                GLOBAL_CONFIG.Snackbar.bgDark
+        var snackbarPos = GLOBAL_CONFIG.Snackbar.position
+        Snackbar.show({
+            text: '✨ 有新文章啦！ 👉',
+            backgroundColor: snackbarBg,
+            duration: 500000,
+            pos: snackbarPos,
+            actionText: '🍗点击食用🍔',
+            actionTextColor: '#fff',
+            onActionClick: function(e) {
+                location.reload()
+            },
+        })
+    } else {
+        var showBg =
+            document.documentElement.getAttribute('data-theme') === 'light' ?
+                '#3b70fc' :
+                '#1f1f1f'
+        var cssText = `top: 0; background: ${showBg};`
+        document.getElementById('app-refresh').style.cssText = cssText
+    }
+}</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i> <span>数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div><script data-pjax>function butterfly_footer_beautify_injector_config(){var A=document.getElementById("footer-wrap");console.log("已挂载butterfly_footer_beautify"),A.insertAdjacentHTML("beforeend",'<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v5.4.0" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v4.2.2" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.jsdelivr.com/" style="margin-inline:5px" data-title="本站使用JsDelivr为静态资源提供CDN加速" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" alt=""/></a><a class="github-badge" target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index" style="margin-inline:5px" data-title="本站已在甘进行备案" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/甘ICP备-2022004213号-e1d492?style=flat&amp;logo=data:image/png;base64,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" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>')}for(var elist="null".split(","),cpage=location.pathname,epage="all",flag=0,i=0;i<elist.length;i++)cpage.includes(elist[i])&&flag++;"all"===epage&&0==flag?butterfly_footer_beautify_injector_config():epage===cpage&&butterfly_footer_beautify_injector_config()</script><script async src="/js/runtime/runtime.min.js"></script><script async src="/js/ali_font.js"></script><div class="js-pjax"><script async>for(var arr=document.getElementsByClassName("recent-post-item"),i=0;i<arr.length;i++)arr[i].classList.add("wow"),arr[i].classList.add("animate__zoomIn"),arr[i].setAttribute("data-wow-duration","1.5s"),arr[i].setAttribute("data-wow-delay","200ms"),arr[i].setAttribute("data-wow-offset","30"),arr[i].setAttribute("data-wow-iteration","1")</script><script async>for(var arr=document.getElementsByClassName("card-widget"),i=0;i<arr.length;i++)arr[i].classList.add("wow"),arr[i].classList.add("animate__zoomIn"),arr[i].setAttribute("data-wow-duration",""),arr[i].setAttribute("data-wow-delay","200ms"),arr[i].setAttribute("data-wow-offset",""),arr[i].setAttribute("data-wow-iteration","")</script><script async>for(var arr=document.getElementsByClassName("flink-list-card"),i=0;i<arr.length;i++)arr[i].classList.add("wow"),arr[i].classList.add("animate__flipInY"),arr[i].setAttribute("data-wow-duration","3s"),arr[i].setAttribute("data-wow-delay",""),arr[i].setAttribute("data-wow-offset",""),arr[i].setAttribute("data-wow-iteration","")</script><script async>for(var arr=document.getElementsByClassName("flink-list-card"),i=0;i<arr.length;i++)arr[i].classList.add("wow"),arr[i].classList.add("animate__animated"),arr[i].setAttribute("data-wow-duration","3s"),arr[i].setAttribute("data-wow-delay",""),arr[i].setAttribute("data-wow-offset",""),arr[i].setAttribute("data-wow-iteration","")</script><script async>for(var arr=document.getElementsByClassName("article-sort-item"),i=0;i<arr.length;i++)arr[i].classList.add("wow"),arr[i].classList.add("animate__slideInRight"),arr[i].setAttribute("data-wow-duration","1.5s"),arr[i].setAttribute("data-wow-delay",""),arr[i].setAttribute("data-wow-offset",""),arr[i].setAttribute("data-wow-iteration","")</script><script async>for(var arr=document.getElementsByClassName("site-card"),i=0;i<arr.length;i++)arr[i].classList.add("wow"),arr[i].classList.add("animate__flipInY"),arr[i].setAttribute("data-wow-duration","3s"),arr[i].setAttribute("data-wow-delay",""),arr[i].setAttribute("data-wow-offset",""),arr[i].setAttribute("data-wow-iteration","")</script><script async>for(var arr=document.getElementsByClassName("site-card"),i=0;i<arr.length;i++)arr[i].classList.add("wow"),arr[i].classList.add("animate__animated"),arr[i].setAttribute("data-wow-duration","3s"),arr[i].setAttribute("data-wow-delay",""),arr[i].setAttribute("data-wow-offset",""),arr[i].setAttribute("data-wow-iteration","")</script></div><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow_init.js"></script></body></html>
